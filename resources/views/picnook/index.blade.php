@@ -13,8 +13,9 @@
 @section('content')
     <h2>see whats happening </h2>
     @foreach ($pics as $pic)
+        <div class="img">
        <img src='{{$pic->link}}'>
-
+        </div>
  
     @endforeach
     {{--
