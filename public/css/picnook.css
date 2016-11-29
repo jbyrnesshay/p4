@@ -38,3 +38,14 @@ footer {
 	position: absolute;
 	width: 100%;
 }
+
+ img {
+	width: 200px;
+	height: 200px;
+	border: 5px solid blue;
+	/*border-image: url(images/wood/wood-785605_640.jpg) 25% repeat;*/
+	border-width: 15px 15px 15px 15px;
+-webkit-border-image:url(/images/wood/wood.png) 15 20 30 30 repeat;
+-moz-border-image:url('/images/wood/wood.png') 15 20 30 30 repeat;
+border-image:url(/images/wood/wood.png) 15 20 30 30 repeat;
+} 
