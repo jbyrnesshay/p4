@@ -29,7 +29,7 @@ class PicController extends Controller
     public function index()
     {   
 
-        $directory = base_path('public\images\catalog');
+        $directory = base_path('public\images');
         $files = \File::allFiles($directory);
         foreach($files as $file)
             {echo(string)$file->getfileName(),"\n";}
