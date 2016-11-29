@@ -10,21 +10,58 @@ header {
 section {
 	 
 	 clear: both;
+	 margin: 0 auto;
+	 width: 95%;
 
 }
 header img {
-	border: .5em solid green;
+	border: .5em solid #321414;
 	width: 200px;
-	height: 100px;
+	height: 95px;
 	border-radius: 50px;
 	float: left;
+	margin-top: 0em;
+	margin-left: 7em;
 }
 
 h1 {
-	float: left;
-	margin-top: 1em;
+	 
+	margin-top: 0em;
 	margin-left: .5em;
+	margin-right: 2em;
+	font-size: 4em;
+	opacity: .7;
+	padding: .15em .3em .3em .3em;
+	position: absolute;
+	font-family: "Century Gothic";
 }
+div#transp {
+	width: 400px;
+	height: 100px;
+	display: inline-block;
+	position: relative;
+	float: left;
+	margin-left: 4em;
+	margin-right: 2em;
+	margin-top: .25em;
+	margin-left: 4em;
+	border: 3px solid black;
+	border-radius: 10px;
+
+}
+
+div#transp::after {
+  content: "";
+  background: url('/images/frames_pexels_107911.jpg');
+  opacity: 0.55;
+  top: 0;
+  left:0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+}
+
 header ul li {
 	display: inline-block;
 	margin-left: 2em;
@@ -33,26 +70,36 @@ nav ul {
 	float: right;
 	margin-right: 3em;
 }
+nav ul li a {
+	border: 1px solid black;
+}
 footer {
 	bottom: 0;
-	position: absolute;
+	position: relative;
 	width: 100%;
+	margin-top: 3em;
+	 
 }
 div.img {
-	border: 2px solid black;
-	border-width: 20px 20px 20px 20px;
+	border: solid black;/*cafe noir shade of brown */
+	/*#321414 seal brown
+	#4F3A3C dark puce
+	#645452 wenge
+	#4B3621 cafe noir brown
+*/
+	border-width: 15px 15px 15px 15px;
 	display: inline-block;
 	margin: .5em;
 
 }
  img {
-	width: 200px;
-	height: 200px;
-	border: 10px solid white;
+	width: 150px;
+	height: 180px;
+	border: 20px solid ghostwhite;
 	/*border-image: url(images/wood/wood-785605_640.jpg) 25% repeat;*/
-	/*
+	
 	border-width: 15px 15px 15px 15px;
--webkit-border-image:url(/images/wood/wood.png) 15 20 30 30 repeat;
+/*-webkit-border-image:url(/images/wood/wood.png) 15 20 30 30 repeat;
 -moz-border-image:url('/images/wood/wood.png') 15 20 30 30 repeat;
-border-image:url(/images/wood/wood.png) 15 20 30 30 repeat;*/
+border-image:url(/images/wood/brush_alum.jpg) 15 20 30 30 repeat;*/
 } 

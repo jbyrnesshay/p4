@@ -18,11 +18,15 @@
 </head>
 <body>
     <header>
-        <h1>PICNOOK</h1><img
+        <div id="transp">
+        <h1>PICNOOK</h1>
+ </div>
+        <img
         src="{{url('/images/frames_pexels_107911.jpg')}}"
 
          
         alt='Picnook Logo'>
+
     <nav>
         <ul>
             <li><a href="/">home</a></li>
