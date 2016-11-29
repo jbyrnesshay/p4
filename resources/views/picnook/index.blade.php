@@ -13,9 +13,10 @@
 @section('content')
     <h2>see whats happening </h2>
     @foreach ($pics as $pic)
-        <img src='{{$pic->link}}'>
+       <img src='{{$pic->link}}'>
+
+ 
     @endforeach
-   
     {{--
     @if(sizeof($books)==0)
         You have not added any books, you can <a href='/book/create'>add a book now to get started</a>.

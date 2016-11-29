@@ -14,9 +14,24 @@ class PicController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    /*public function getFiles() {
+        $files = [];
+       $directory = public_path();
+       // $files = \File::allFiles($directory);
+        $files = glob('$directory\images\*.jpeg');
+        
+        //foreach($files as $file){
+             
+            //$pics[]=$file->getPathname().'\\'.$file->getFilename();
+        //}
+        dd($files);
+    }*/
     public function index()
-    {
+    {   
+
          $pics = Pic::all();
+         
+         //dd($pics);
         return \View::make('picnook.index')->with('pics', $pics);
     }
 
