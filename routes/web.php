@@ -14,3 +14,6 @@
 Route::get('/', 'PicController@index'
 )->name('home');
  
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
