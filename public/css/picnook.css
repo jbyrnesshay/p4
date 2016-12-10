@@ -94,7 +94,7 @@ div.img {
 	margin: .5em;
 
 }
- img {
+ img, input[type="image"] {
 	width: 150px;
 	height: 180px;
 	border: 20px solid ghostwhite;
@@ -105,7 +105,17 @@ div.img {
 -moz-border-image:url('/images/wood/wood.png') 15 20 30 30 repeat;
 border-image:url(/images/wood/brush_alum.jpg) 15 20 30 30 repeat;*/
 } 
+img#currentbrowse {
+	width: 225px;
+	height: 275px;
+}
+div#frame {
+	width: 250px;
+	height: 300px;
+	border: 40px solid black;
+	border-width: 25px 25px 25px 25px;
 
+}
 #greeting {
 	border: 1px solid blue;
 	border-radius: 5px;

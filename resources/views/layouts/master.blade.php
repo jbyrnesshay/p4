@@ -73,9 +73,15 @@
         &copy; {{ date('Y') }}
     </footer>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+   {{--}} <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>--}}
+    
 
     {{-- Yield any page specific JS files or anything else you might want at end of body--}}
     @yield('body')
-</body>
+     <script
+        src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+        <script src="/js/scripts.js"></script>
+    </body>
 </html>

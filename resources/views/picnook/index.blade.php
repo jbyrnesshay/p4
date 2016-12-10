@@ -7,16 +7,28 @@
 
 
 @section('head')
-    <link href="css/picnook.css" type="text/css" rel='stylesheet'>
+    <link href="/css/picnook.css" type="text/css" rel='stylesheet'>
 @stop
 
 @section('content')
     <h2>see whats happening </h2>
-    @foreach ($pics as $pic)
+    @foreach ($pics as $key=>$pic)
         <div class="img">
-       <img src='{{$pic->link}}'>
+         {{++$key}}
+        {{--<form method='POST' id="test" action='/create/{{$key}}'>
+          {{ csrf_field()}}--}}
+       
+        {{--<input type="image" src={{$pic->link}} id='{{$key}}' value={{$key}}>--}}
+       <a href="/create/{{$key}}"> <img src={{$pic->link}}> </a>  
+        {{--<form method="get" action="/create/{{$key}}">--}
+        {{--<input type="image" src={{$pic->link}} id='{{$key}}' value={{$key}}>--} 
+         
+       {{--<img src='{{$pic->link}}'>
+       <input type="submit" value='Submit'>--}}
+      
+       
         </div>
- 
+        
     @endforeach
     {{--
     @if(sizeof($books)==0)

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Picnook\Pic;
 use Picnook\User;
 use Picnook\Auth;
+//use Picnook\View;
 
 class PicController extends Controller
 {
@@ -60,9 +61,21 @@ class PicController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($key)
     {
-        //
+
+        //dd($key);
+        $pic= Pic::where('id', '=', $key)->first();
+        if (\Auth::user()) {
+            $name = \Auth::user()->first_name;
+        }
+        else $name = '';
+
+        //$data= $pic;
+        //dd($pic->link);
+        //dd($request->key);
+        //$data=$request->
+        return \View::make('picnook.create')->with('pic', $pic)->with('name', $name);
     }
 
     /**
