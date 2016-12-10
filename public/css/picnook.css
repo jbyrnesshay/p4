@@ -2,6 +2,7 @@ body {
 	position: relative;
 	font-family: Arial, sans-serif;
 
+
 }
 header {
 	width: 100%;
@@ -71,7 +72,8 @@ nav ul {
 	margin-right: 3em;
 }
 nav ul li a {
-	border: 1px solid black;
+	/*border: 1px solid black;*/
+	text-decoration: none;
 }
 footer {
 	bottom: 0;
@@ -103,3 +105,23 @@ div.img {
 -moz-border-image:url('/images/wood/wood.png') 15 20 30 30 repeat;
 border-image:url(/images/wood/brush_alum.jpg) 15 20 30 30 repeat;*/
 } 
+
+#greeting {
+	border: 1px solid blue;
+	border-radius: 5px;
+	background: aqua;
+	text-transform: uppercase;
+	padding: .3em;
+
+}
+
+nav ul li {
+	border: 1px solid blue;
+	border-radius: 5px;
+	background: lightYellow;
+	text-transform: uppercase;
+	padding: .3em;
+	width: 5em;
+	text-align: center;
+
+}

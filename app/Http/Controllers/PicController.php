@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 //use Picnook;
 use Picnook\Pic;
+use Picnook\User;
+use Picnook\Auth;
 
 class PicController extends Controller
 {
@@ -26,7 +28,7 @@ class PicController extends Controller
         //}
         dd($files);
     }*/
-    public function index()
+    public function index(Request $request)
     {   
 
        /* $directory = public_path();
@@ -34,12 +36,23 @@ class PicController extends Controller
         $files = \File::allFiles($directory);
         foreach($files as $file)
             {echo(string)$file->getfileName(),"\n";}
-         */
+         */$pics = Pic::all();
 
-         $pics = Pic::all();
+            if (\Auth::user()) {
+            $user = \Auth::user();
+
+        $data = array('name'=>$user->first_name, 'pics'=>$pics);
+    }
+
+    else {
+        $data = ['pics'=>$pics];
+    }
          
+         //dd($user->first_name);
          //dd($pics);
-        return \View::make('picnook.index')->with('pics', $pics);
+        return \View::make('picnook.index')->with($data);
+
+       // (['pics'=>$pics], ['user'=> $user]);
     }
 
     /**

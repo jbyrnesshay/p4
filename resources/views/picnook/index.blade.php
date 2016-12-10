@@ -7,7 +7,7 @@
 
 
 @section('head')
-    <link href="/css/picnook.css" type="text/css" rel='stylesheet'>
+    <link href="css/picnook.css" type="text/css" rel='stylesheet'>
 @stop
 
 @section('content')

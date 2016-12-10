@@ -28,18 +28,25 @@
         alt='Picnook Logo'>
 
     <nav>
-        <ul>
 
+        
+        
+        <ul>
+            
             @if (!(Auth::check()))
 
-            <li><a href="/login">login</a></li>
+            <li><a href="/login">sign in</a></li>
             @else 
-           
-            <li><a href="/logout">logout</a></li>
+             <span id="greeting">
+            @if (isset($name))
+            {{"hi ".$name."!"}}
+             @endif
+            </span>
+            <li><a href="/logout">sign out</a></li>
             @endif
             <li><a href="/">home</a></li>
             <li><a href="http://google.com/">google</a></li>
-            <li></li>
+            
         </ul>
     </nav>
     </header>
