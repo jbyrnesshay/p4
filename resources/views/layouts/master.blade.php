@@ -29,6 +29,14 @@
 
     <nav>
         <ul>
+
+            @if (!(Auth::check()))
+
+            <li><a href="/login">login</a></li>
+            @else 
+           
+            <li><a href="/logout">logout</a></li>
+            @endif
             <li><a href="/">home</a></li>
             <li><a href="http://google.com/">google</a></li>
             <li></li>
