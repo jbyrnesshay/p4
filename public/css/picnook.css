@@ -1,3 +1,5 @@
+
+/*the first 2 rulesets are placed on top due to particular scripting needs*/ 
 /*padding overlayed on image, without shrinking image to fit*/
 div#padding:before {
 	content: '';
@@ -11,6 +13,19 @@ div#padding:before {
 	margin: 0 0 0 0;
 	padding: 0 0 0 0;
 }
+div#frame {
+	width: 250px;
+	height: 300px;
+	border: solid black;
+	padding: 0em;
+	z-index: 5;
+	/*-width: 25px 25px 25px 25px;*/
+	position: relative;
+	display: inline-block;
+
+}
+/****************************/
+/*begin general css */
 
 html {
   box-sizing: border-box;
@@ -153,16 +168,7 @@ img#currentbrowse {
 }
 
  
-div#frame {
-	width: 250px;
-	height: 300px;
-	border: solid black;
-	padding: 0em;
-	z-index: 5;
-	border-width: 25px 25px 25px 25px;
-	position: relative;
 
-}
 
 
 nav ul li {
@@ -183,3 +189,30 @@ span#greeting {
 	padding: .3em;
 
 }
+div#selectionoptions {
+	text-transform: uppercase;
+	font-size: .8em;
+	margin-left: 2em;
+	display: inline-block;
+	border:  3px dotted red;
+	border-radius: 5px;
+	background: lightyellow;
+	width: 250px;
+	height:  300px;
+	position: absolute;
+}
+#selectionoptions label {
+	display: block;
+	margin: .5em;
+}
+#selectionoptions select {
+	margin-left: .5em;
+	text-transform: inherit;
+	width: 50%;
+	border-radius: 5px;
+}
+input[type="submit"] {
+	margin-bottom: .75em;
+	margin-left: .5em;
+}
+ 

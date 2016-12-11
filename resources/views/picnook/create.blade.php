@@ -18,6 +18,7 @@
    </div>
    <div id="selectionoptions">
     <form>
+    <fieldset>
     <label for = "frameselect">select frame:</label>
     <select id ="frameselect">
     	<option id="black">black</option>
@@ -39,6 +40,17 @@
     	<option value="MintCream">mint cream</option>
     	
     </select>
+    </fieldset>
+    <fieldset>
+    <label for="framewidth">select frame thickness</label>
+    <input type ="range" id="framethick" min='0' max='2' step='.25' value='.25'>
+    <label for="matwidth">select mat width</label>
+    <input type="range" id="matwidth" min='0' max ='2' step='.25' value='.25'>
+    </fieldset>
+    <fieldset>
+    <label for = 'addwishlist'>add to wishlist?</label>
+    <input type='submit' value="Submit" id="addwishlist">
+    </fieldset>
     </form>    
     </div>
 @stop

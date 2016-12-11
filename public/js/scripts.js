@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-
+	mainstylesheet = document.styleSheets[2];
 	$('#frameselect').change(function(){
 		color = $(this).val();
 		 
@@ -19,7 +19,8 @@ $(document).ready(function() {
 			 
 		}*/
 		/* as of 12/11 [2] is the index of main stylesheet */
-		mainstylesheet = document.styleSheets[2];
+		
+		//var mysheet = $('link[href="/css/picnook.css"]')[0].sheet;
 		/*reminder use .cssText; to see contents */
 		bwidth = '1em';
 
@@ -29,18 +30,25 @@ $(document).ready(function() {
 		else {
 			mainstylesheet.cssRules[0].style.borderWidth=bwidth;
 			mainstylesheet.cssRules[0].style.borderColor=matcolor;
-		//alert(first_rule);
-		//var test = document.styleSheets[1];
-		//var test = document.getElementById('mainstyles');
-		//alert(test);
-	//	var mysheet = $('link[href="/css/picnook.css"]')[0].sheet;
-   //document.test.addRule('div#padding:before','border-color: "'+matcolor+'";');
-      //div#padding:before 
-		//$('div#padding').before().css('borderColor', matcolor);
-		//div#padding:before
-	//$('#currentbrowse').css('borderColor',color );
+			 
 	}
-
+	
+	//var mysheet = $('link[href="/css/picnook.css"]')[0].sheet;
+   //document.test.addRule('div#padding:before','border-color: "'+matcolor+'";');
+   //mysheet.addRule('div#padding:before','border: "'+matcolor+'";');
+   //mysheet.cssRules[0].style.borderWidth=bwidth;
+	//		mysheet.cssRules[0].style.borderColor=matcolor;
+   //alert(mysheet.cssRules[0].cssText);
+       
+	//}
 });
+	$('#framethick').on("input",function(){
+	fwidth = $('#framethick').val();
+	mainstylesheet.cssRules[1].style.borderWidth=fwidth+'em';
+});
+	$('#matwidth').on("input", function(){
+		mwidth= $(this).val();
+		mainstylesheet.cssRules[0].style.borderWidth=mwidth+'em';
+	});
 //ocument.styleSheets[0].addRule('div#padding:before','border-color: "'+matcolor+'";');
 });//end document ready
