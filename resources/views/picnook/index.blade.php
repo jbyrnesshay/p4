@@ -11,15 +11,15 @@
 @stop
 
 @section('content')
-    <h2>see whats happening </h2>
+    <h2>recommended </h2>
     @foreach ($pics as $key=>$pic)
-        <div class="img">
-         {{++$key}}
+        <div class="img test">
+         {{--{{++$key}}--}
         {{--<form method='POST' id="test" action='/create/{{$key}}'>
           {{ csrf_field()}}--}}
        
         {{--<input type="image" src={{$pic->link}} id='{{$key}}' value={{$key}}>--}}
-       <a href="/create/{{$key}}"> <img src={{$pic->link}}> </a>  
+       <a href="/create/{{$key}}"> <img class="index" src={{$pic->link}}> </a>  
         {{--<form method="get" action="/create/{{$key}}">--}
         {{--<input type="image" src={{$pic->link}} id='{{$key}}' value={{$key}}>--} 
          

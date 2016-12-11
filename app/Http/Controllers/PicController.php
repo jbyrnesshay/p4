@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 //use Picnook;
 use Picnook\Pic;
 use Picnook\User;
-use Picnook\Auth;
+use View, Auth;
+//use Auth;
 //use Picnook\View;
 
 class PicController extends Controller
@@ -39,8 +40,8 @@ class PicController extends Controller
             {echo(string)$file->getfileName(),"\n";}
          */$pics = Pic::all();
 
-            if (\Auth::user()) {
-            $user = \Auth::user();
+            if (Auth::user()) {
+            $user = Auth::user();
 
         $data = array('name'=>$user->first_name, 'pics'=>$pics);
     }
@@ -51,7 +52,7 @@ class PicController extends Controller
          
          //dd($user->first_name);
          //dd($pics);
-        return \View::make('picnook.index')->with($data);
+        return View::make('picnook.index')->with($data);
 
        // (['pics'=>$pics], ['user'=> $user]);
     }
@@ -66,8 +67,8 @@ class PicController extends Controller
 
         //dd($key);
         $pic= Pic::where('id', '=', $key)->first();
-        if (\Auth::user()) {
-            $name = \Auth::user()->first_name;
+        if (Auth::user()) {
+            $name = Auth::user()->first_name;
         }
         else $name = '';
 
@@ -75,7 +76,7 @@ class PicController extends Controller
         //dd($pic->link);
         //dd($request->key);
         //$data=$request->
-        return \View::make('picnook.create')->with('pic', $pic)->with('name', $name);
+        return View::make('picnook.create')->with('pic', $pic)->with('name', $name);
     }
 
     /**

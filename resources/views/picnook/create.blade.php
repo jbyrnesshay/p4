@@ -10,10 +10,13 @@
 @stop
 
 @section('content')
-    <h2>your thing </h2>
+    <h2>current selection </h2>
    <div id="frame">
-   <img id="currentbrowse" src={{$pic->link}}>
+   <div id="padding">
+   <img id="currentbrowse" class="browse" src={{$pic->link}}>
    </div>
+   </div>
+   <div id="selectionoptions">
     <form>
     <label for = "frameselect">select frame:</label>
     <select id ="frameselect">
@@ -28,6 +31,7 @@
     </select>
     <label for ="matselect">select matting:</label>
     <select id="matselect">
+    	<option value="none">none</option>
     	<option value="white">white</option>
     	<option value="AntiqueWhite">antique white</option>
     	<option value="SeaShell">seashell</option>
@@ -35,6 +39,8 @@
     	<option value="MintCream">mint cream</option>
     	
     </select>
+    </form>    
+    </div>
 @stop
  
 

@@ -1,3 +1,24 @@
+/*padding overlayed on image, without shrinking image to fit*/
+div#padding:before {
+	content: '';
+	border: .5em solid;
+	border: .6em solid;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 body {
 	position: relative;
 	font-family: Arial, sans-serif;
@@ -6,7 +27,10 @@ body {
 }
 header {
 	width: 100%;
-	clear:  both;
+	clear:  both
+	background: grey;
+	border: 1px solid black;
+	height: 7em;
 }
 section {
 	 
@@ -25,8 +49,7 @@ header img {
 	margin-left: 7em;
 }
 
-h1 {
-	 
+header h1 {
 	margin-top: 0em;
 	margin-left: .5em;
 	margin-right: 2em;
@@ -36,6 +59,7 @@ h1 {
 	position: absolute;
 	font-family: "Century Gothic";
 }
+/* transparent background for header brand image */
 div#transp {
 	width: 400px;
 	height: 100px;
@@ -50,7 +74,6 @@ div#transp {
 	border-radius: 10px;
 
 }
-
 div#transp::after {
   content: "";
   background: url('/images/frames_pexels_107911.jpg');
@@ -62,8 +85,10 @@ div#transp::after {
   position: absolute;
   z-index: -1;   
 }
+/* end transparent background for brand image */
 
-header ul li {
+/* nav items */
+header nav ul li {
 	display: inline-block;
 	margin-left: 2em;
 }
@@ -75,6 +100,8 @@ nav ul li a {
 	/*border: 1px solid black;*/
 	text-decoration: none;
 }
+/* end nav items */
+
 footer {
 	bottom: 0;
 	position: relative;
@@ -82,48 +109,61 @@ footer {
 	margin-top: 3em;
 	 
 }
+
+
+/*******************************************/
+/*index page image selection */
 div.img {
 	border: solid black;/*cafe noir shade of brown */
 	/*#321414 seal brown
 	#4F3A3C dark puce
 	#645452 wenge
-	#4B3621 cafe noir brown
-*/
+	#4B3621 cafe noir brown*/
 	border-width: 15px 15px 15px 15px;
 	display: inline-block;
 	margin: .5em;
-
 }
- img, input[type="image"] {
+/*single image selection display */
+img.browse, input[type="image"] {
 	width: 150px;
 	height: 180px;
-	border: 20px solid ghostwhite;
+	border: solid ghostwhite;
 	/*border-image: url(images/wood/wood-785605_640.jpg) 25% repeat;*/
 	
-	border-width: 15px 15px 15px 15px;
+	/*border-width: 15px 15px 15px 15px;*/
 /*-webkit-border-image:url(/images/wood/wood.png) 15 20 30 30 repeat;
 -moz-border-image:url('/images/wood/wood.png') 15 20 30 30 repeat;
 border-image:url(/images/wood/brush_alum.jpg) 15 20 30 30 repeat;*/
 } 
-img#currentbrowse {
-	width: 225px;
-	height: 275px;
+img.index {
+	width: 100px;
+	height: 140px;
+
 }
+img#currentbrowse {
+	width: 100%;
+	height: 100%;
+	
+	left: 0;
+	top: 0;
+	display:  inline-block;
+	z-index: -1;
+	position: absolute;
+	border: none;
+}
+
+ 
 div#frame {
 	width: 250px;
 	height: 300px;
-	border: 40px solid black;
+	border: solid black;
+	padding: 0em;
+	z-index: 5;
 	border-width: 25px 25px 25px 25px;
+	position: relative;
 
 }
-#greeting {
-	border: 1px solid blue;
-	border-radius: 5px;
-	background: aqua;
-	text-transform: uppercase;
-	padding: .3em;
 
-}
 
 nav ul li {
 	border: 1px solid blue;
@@ -131,7 +171,15 @@ nav ul li {
 	background: lightYellow;
 	text-transform: uppercase;
 	padding: .3em;
-	width: 5em;
+	width: 6em;
 	text-align: center;
+
+}
+span#greeting {
+	border: 5px solid blue;
+	border-radius: 5px;
+	background: antiquewhite;
+	text-transform: uppercase;
+	padding: .3em;
 
 }
