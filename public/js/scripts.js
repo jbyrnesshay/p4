@@ -11,16 +11,25 @@ $(document).ready(function() {
 	 //r matcolor = '';
 	$('#matselect').change(function(){
 		matcolor = $(this).val();
-		alert(matcolor);
+		//alert(matcolor);
 		//$('div#padding').addClass('r');
 		//r str = "bar";
 		/*for (i=0; i < document.styleSheets.length; i++){
 			var stylesheet = document.styleSheets[i];
 			 
 		}*/
+		/* as of 12/11 [2] is the index of main stylesheet */
 		mainstylesheet = document.styleSheets[2];
-		var first_rule = mainstylesheet.cssRules[0].style.borderColor=matcolor;
-		alert(first_rule);
+		/*reminder use .cssText; to see contents */
+		bwidth = '1em';
+
+		if (matcolor == 'none') {
+			var firstrule = mainstylesheet.cssRules[0].style.borderWidth = 0;
+		}
+		else {
+			mainstylesheet.cssRules[0].style.borderWidth=bwidth;
+			mainstylesheet.cssRules[0].style.borderColor=matcolor;
+		//alert(first_rule);
 		//var test = document.styleSheets[1];
 		//var test = document.getElementById('mainstyles');
 		//alert(test);
@@ -30,7 +39,7 @@ $(document).ready(function() {
 		//$('div#padding').before().css('borderColor', matcolor);
 		//div#padding:before
 	//$('#currentbrowse').css('borderColor',color );
-	
+	}
 
 });
 //ocument.styleSheets[0].addRule('div#padding:before','border-color: "'+matcolor+'";');
