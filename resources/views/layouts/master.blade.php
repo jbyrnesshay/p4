@@ -21,6 +21,7 @@
         <div id="transp">
             <h1>PICNOOK</h1>
         </div>
+        <div id="headimage">
          @if(Session::get('flash_message') != null)
                  <div id="flash_message">
              
@@ -28,7 +29,7 @@
              </div>
         @else  <img src="{{url('/images/frames_pexels_107911.jpg')}}" alt='Picnook Logo'> 
         @endif
-       
+       </div>
         <nav>
             <ul>
                 @if (!(Auth::check()))

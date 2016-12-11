@@ -233,4 +233,5 @@ img.wishitem {
 	text-transform: uppercase;
 	font-weight: bolder;
 	display: inline-block;
+	position: absolute;
 }

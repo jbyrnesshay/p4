@@ -1,9 +1,12 @@
 $(document).ready(function() {
-
+	 
+	var headsource = '<img src="/images/frames_pexels_107911.jpg">';
 	mainstylesheet = document.styleSheets[2];
 
 	if ($('#flash_message').html()) {
-		 $('#flash_message').fadeOut(4000);
+		 $('#flash_message').fadeOut(3000, function(){
+		 $('#headimage').html(headsource);
+		});
 	}
 	 
 
