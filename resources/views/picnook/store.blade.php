@@ -17,11 +17,10 @@
    </div>
    </div>
    <div id="selectionoptions">
-    <form method="POST" action="/store" >
-        {{ csrf_field() }}
+    <form>
     <fieldset>
     <label for = "frameselect">select frame:</label>
-    <select id ="frameselect" name='frameselect'>
+    <select id ="frameselect">
     	<option id="black">black</option>
     	 
     	<option id="silver">silver</option>
@@ -32,7 +31,7 @@
     	<option value="DarkSlateGray">slate gray</option>
     </select>
     <label for ="matselect">select matting:</label>
-    <select id="matselect" name='matselect'>
+    <select id="matselect">
     	<option value="none">none</option>
     	<option value="white">white</option>
     	<option value="AntiqueWhite">antique white</option>
@@ -44,25 +43,20 @@
     </fieldset>
     <fieldset>
     <label for="framethick">select frame thickness</label>
-    <input type ="range" id="framethick" make= 'framethick' min='0' max='2' step='.25' value='.25'>
+    <input type ="range" id="framethick" min='0' max='2' step='.25' value='.25'>
     <label for="matwidth">select mat width</label>
-    <input type="range" id="matwidth" name='matwidth' min='0' max ='2' step='.25' value='.25'>
+    <input type="range" id="matwidth" min='0' max ='2' step='.25' value='.25'>
     </fieldset>
     <fieldset>
-    <input type="hidden" name='key' value={{$key}}>
     <label for = 'addwishlist'>add to wishlist?</label>
     <input type='submit' value="Submit" id="addwishlist">
-    
     </fieldset>
     </form>    
     </div>
     <div id="wishlistcontainer">
-    @if (Auth::check())
      @foreach ($list as $item)
      <img class="wishitem" src = {{$item->link}}>
      @endforeach
-     @endif
-     
     </div>
 @stop
  
@@ -71,4 +65,3 @@
 @section('body')
      
  
-

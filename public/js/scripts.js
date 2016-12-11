@@ -1,6 +1,12 @@
 $(document).ready(function() {
 
 	mainstylesheet = document.styleSheets[2];
+
+	if ($('#flash_message').html()) {
+		 $('#flash_message').fadeOut(4000);
+	}
+	 
+
 	$('#frameselect').change(function(){
 		color = $(this).val();
 		 
@@ -51,4 +57,6 @@ $(document).ready(function() {
 		mainstylesheet.cssRules[0].style.borderWidth=mwidth+'em';
 	});
 //ocument.styleSheets[0].addRule('div#padding:before','border-color: "'+matcolor+'";');
+
+
 });//end document ready

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 //use Picnook;
 use Picnook\Pic;
 use Picnook\User;
-use View, Auth;
+use View, Auth, Session, Redirect;
 //use Auth;
 //use Picnook\View;
 
@@ -65,18 +65,25 @@ class PicController extends Controller
     public function create($key)
     {
 
-        //dd($key);
+      
         $pic= Pic::where('id', '=', $key)->first();
         if (Auth::user()) {
             $name = Auth::user()->first_name;
+        
+        $user=Auth::user();
+        $list = $user->pics()->get();
         }
-        else $name = '';
-
+        else {
+            $name = '';
+            $list = '';
+        }
+        
+        
         //$data= $pic;
         //dd($pic->link);
         //dd($request->key);
         //$data=$request->
-        return View::make('picnook.create')->with('pic', $pic)->with('name', $name);
+        return View::make('picnook.create')->with('pic', $pic)->with('name', $name)->with('list', $list)->with('key', $key);
     }
 
     /**
@@ -87,8 +94,32 @@ class PicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+          $this->validate($request, [/*'title'=> 'required|min:3', 'published' => 'required|min:4|numeric', 'cover' => 'required|url', 'purchase_link' => 'required|url', */]);
+
+        $toAdd = $request->input('key');
+        $user=Auth::user();
+        $list = $user->pics()->get();
+        $itemtoAdd='';
+        //dd($list);
+        foreach ($list as $item) {
+            if ($item->id == $toAdd) {
+               // if(!(\Auth::check())) {
+                Session::flash('flash_message', 'You have already added this one');
+                return redirect('/create/'.$toAdd);
+            }
+            else {
+                 $itemtoAdd = Pic::where('id', 'LIKE', $toAdd)->first();
+                 //dd($itemtoAdd);
+                if (!$list->contains($itemtoAdd->id)) 
+                {
+                    $user->pics()->save($itemtoAdd);
+                    return redirect('/');
+                }
+            }
+      }
     }
+    
+        
 
     /**
      * Display the specified resource.

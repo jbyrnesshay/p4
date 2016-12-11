@@ -14,7 +14,7 @@
     <h2>recommended </h2>
     @foreach ($pics as $key=>$pic)
         <div class="img test">
-         {{--{{++$key}}--}
+         {{++$key}}
         {{--<form method='POST' id="test" action='/create/{{$key}}'>
           {{ csrf_field()}}--}}
        

@@ -215,4 +215,22 @@ input[type="submit"] {
 	margin-bottom: .75em;
 	margin-left: .5em;
 }
- 
+div#wishlistcontainer {
+	float: right;
+	width: 30em;
+	height: 25em;
+	background: grey;
+	 
+	border: 1px solid black;
+	display: block;
+}
+img.wishitem {
+	width: 5em;
+	height: 5em;
+}
+#flash_message {
+	background: orange;
+	text-transform: uppercase;
+	font-weight: bolder;
+	display: inline-block;
+}

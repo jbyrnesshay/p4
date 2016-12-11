@@ -15,6 +15,8 @@ Route::get('/', 'PicController@index'
 )->name('home');
  
 Route::get('/create/{item}', 'PicController@create')->name('create');
+
+Route::post('/store', 'PicController@store')->name('store');
 Auth::routes();
 
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
