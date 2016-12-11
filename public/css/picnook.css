@@ -208,7 +208,7 @@ div#selectionoptions {
 #selectionoptions select {
 	margin-left: .5em;
 	text-transform: inherit;
-	width: 50%;
+	width: 60%;
 	border-radius: 5px;
 }
 input[type="submit"] {

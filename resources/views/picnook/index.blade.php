@@ -64,5 +64,5 @@
 
 
 @section('body')
-    <script src="/js/picnook/index.js"></script>
+     
  

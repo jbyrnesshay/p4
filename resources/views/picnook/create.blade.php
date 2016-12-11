@@ -42,7 +42,7 @@
     </select>
     </fieldset>
     <fieldset>
-    <label for="framewidth">select frame thickness</label>
+    <label for="framethick">select frame thickness</label>
     <input type ="range" id="framethick" min='0' max='2' step='.25' value='.25'>
     <label for="matwidth">select mat width</label>
     <input type="range" id="matwidth" min='0' max ='2' step='.25' value='.25'>
@@ -58,6 +58,6 @@
 
 
 @section('body')
-    <script src="/js/picnook/index.js"></script>
+     
  
 
