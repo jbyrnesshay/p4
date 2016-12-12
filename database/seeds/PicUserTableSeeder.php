@@ -25,8 +25,12 @@ class PicUserTableSeeder extends Seeder
     	$user = User::where('first_name', 'like', $user)->first();
 
     	foreach ($items as $item) {
-    		$addtoList = Pic::where('id', 'like', $item)->first();
 
+    		$addtoList = Pic::where('id', 'like', $item)->first();
+        $addtoList->mat_color = 'white';
+        $addtoList->frame_color = 'silver';
+        $addtoList->frame_thickness = '.5em';
+        $addtoList->mat_thickness = '.5em';
     	$user->pics()->save($addtoList);	
     	}
     }

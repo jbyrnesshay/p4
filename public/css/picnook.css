@@ -77,7 +77,7 @@ div.frame {
 }
 div.padding:before {
 	content: '';
-	border: solid 0em;
+	border: white solid .4em;
 	top: 0;
 	right: 0;
 	bottom: 0;
