@@ -33,6 +33,7 @@
         <nav>
             <ul>
                 @if (!(Auth::check()))
+                <li><a href="/register">register</a></li>
                 <li><a href="/login">sign in</a></li>
                 @else 
                     <span id="greeting">

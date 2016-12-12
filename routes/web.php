@@ -20,6 +20,7 @@ Route::post('/store', 'PicController@store')->name('store');
 
 
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+Route::get("/register", 'Auth\RegisterController@register')->name('register');
 Route::get('/welcome', 'HomeController@index');
 
 Auth::routes();
