@@ -1,10 +1,10 @@
 
 /*the first 2 rulesets are placed on top due to particular scripting needs*/ 
 /*padding overlayed on image, without shrinking image to fit*/
+/*:before is dynamically style-changed with javascript, not possible with jquery*/
 div#padding:before {
 	content: '';
-	border: .5em solid;
-	border: .6em solid;
+	border: .25em solid;
 	top: 0;
 	right: 0;
 	bottom: 0;
@@ -29,6 +29,7 @@ div#frame {
 
 html {
   box-sizing: border-box;
+
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -37,7 +38,8 @@ html {
 body {
 	position: relative;
 	font-family: Arial, sans-serif;
-
+	width: 100%;
+	height: 100%;
 
 }
 header {
@@ -102,6 +104,11 @@ div#transp::after {
 }
 /* end transparent background for brand image */
 
+#ctrheadimage {
+	margin-top: .25em;
+	margin-bottom: .25em;
+	height: 6.5em;
+}
 /* nav items */
 header nav ul li {
 	display: inline-block;
@@ -119,10 +126,13 @@ nav ul li a {
 
 footer {
 	bottom: 0;
-	position: relative;
-	width: 100%;
-	margin-top: 3em;
 	 
+	position: fixed;
+	width: 100%;
+	margin: 3em auto 0 auto;
+	height: 2em;
+	background: grey;
+
 }
 
 
@@ -234,4 +244,22 @@ img.wishitem {
 	font-weight: bolder;
 	display: inline-block;
 	position: absolute;
+	height: 6.5em;
+	margin: .25em 0 .25em 3em;
+	padding-top: 3em;
+}
+#purchase fieldset{
+	margin-left: 0;
+	display: inline-block;
+	width: 15.75em;
+}
+#purchase fieldset label {
+	margin-left: 2em;
+}
+section #displayselection {
+	border: 2px solid black;
+	position: absolute;
+	display: inline-block;
+	padding: 1em;
+	width: 40%;
 }

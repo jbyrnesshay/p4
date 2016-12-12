@@ -10,12 +10,24 @@
 @stop
 
 @section('content')
+<div id="wishlistcontainer">
+    <h2> your list </h2>
+    @if (Auth::check())
+     @foreach ($list as $item)
+     <img class="wishitem" src = {{$item->link}}>
+     @endforeach
+     @endif
+     
+    </div>
     <h2>current selection </h2>
+    <section id="displayselection">
    <div id="frame">
    <div id="padding">
    <img id="currentbrowse" class="browse" src={{$pic->link}}>
    </div>
    </div>
+   
+    
    <div id="selectionoptions">
     <form method="POST" action="/store" >
         {{ csrf_field() }}
@@ -44,9 +56,9 @@
     </fieldset>
     <fieldset>
     <label for="framethick">select frame thickness</label>
-    <input type ="range" id="framethick" make= 'framethick' min='0' max='2' step='.25' value='.25'>
+    <input type ="range" id="framethick" make= 'framethick' min='.25' max='2' step='.25' value='.25'>
     <label for="matwidth">select mat width</label>
-    <input type="range" id="matwidth" name='matwidth' min='0' max ='2' step='.25' value='.25'>
+    <input type="range" id="matwidth" name='matwidth' min='.25' max ='2' step='.25' value='.25'>
     </fieldset>
     <fieldset>
     <input type="hidden" name='key' value={{$key}}>
@@ -56,14 +68,19 @@
     </fieldset>
     </form>    
     </div>
-    <div id="wishlistcontainer">
-    @if (Auth::check())
-     @foreach ($list as $item)
-     <img class="wishitem" src = {{$item->link}}>
-     @endforeach
-     @endif
-     
+    <div id="purchase"> 
+    <form id="purchasepoint">
+    <fieldset>
+    <span id="price">
+    $155.00
+    </span>
+    <label for="buy">purchase?</label>
+    <input type="submit" id="buy" name="buy" value="buy">
+    </fieldset>
+
+    </form>
     </div>
+    </section>
 @stop
  
 

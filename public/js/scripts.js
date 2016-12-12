@@ -1,37 +1,21 @@
 $(document).ready(function() {
-	 
-	var headsource = '<img src="/images/frames_pexels_107911.jpg">';
+	headsource = '<img id="ctrheadimage" src="/images/frames_pexels_107911.jpg">';
 	mainstylesheet = document.styleSheets[2];
 
 	if ($('#flash_message').html()) {
 		 $('#flash_message').fadeOut(3000, function(){
-		 $('#headimage').html(headsource);
+		 	$('#headimage').html(headsource);
 		});
 	}
-	 
-
 	$('#frameselect').change(function(){
 		color = $(this).val();
-		 
 		$('#frame').css('borderColor',color );
 	});
-		//alert(color);
-		//$('#currentbrowse').css('borderColor',color );
-	 //r matcolor = '';
+	
 	$('#matselect').change(function(){
 		matcolor = $(this).val();
-		//alert(matcolor);
-		//$('div#padding').addClass('r');
-		//r str = "bar";
-		/*for (i=0; i < document.styleSheets.length; i++){
-			var stylesheet = document.styleSheets[i];
-			 
-		}*/
-		/* as of 12/11 [2] is the index of main stylesheet */
-		
-		//var mysheet = $('link[href="/css/picnook.css"]')[0].sheet;
 		/*reminder use .cssText; to see contents */
-		bwidth = '1em';
+		bwidth = '.25em';
 
 		if (matcolor == 'none') {
 			var firstrule = mainstylesheet.cssRules[0].style.borderWidth = 0;
@@ -39,27 +23,22 @@ $(document).ready(function() {
 		else {
 			mainstylesheet.cssRules[0].style.borderWidth=bwidth;
 			mainstylesheet.cssRules[0].style.borderColor=matcolor;
-			 
-	}
-	
-	//var mysheet = $('link[href="/css/picnook.css"]')[0].sheet;
-   //document.test.addRule('div#padding:before','border-color: "'+matcolor+'";');
-   //mysheet.addRule('div#padding:before','border: "'+matcolor+'";');
-   //mysheet.cssRules[0].style.borderWidth=bwidth;
-	//		mysheet.cssRules[0].style.borderColor=matcolor;
-   //alert(mysheet.cssRules[0].cssText);
-       
-	//}
-});
+		}
+	});
 	$('#framethick').on("input",function(){
-	fwidth = $('#framethick').val();
-	mainstylesheet.cssRules[1].style.borderWidth=fwidth+'em';
-});
+		fwidth = $('#framethick').val();
+		mainstylesheet.cssRules[1].style.borderWidth=fwidth+'em';
+	});
 	$('#matwidth').on("input", function(){
 		mwidth= $(this).val();
+		matcolor= $('#matselect').val();
+		if (matcolor == 'none') {
+			var firstrule = mainstylesheet.cssRules[0].style.borderWidth = 0+'em';
+
+		}
+		else {
 		mainstylesheet.cssRules[0].style.borderWidth=mwidth+'em';
+		mainstylesheet.cssRules[0].style.borderColor=matcolor;
+	}
 	});
-//ocument.styleSheets[0].addRule('div#padding:before','border-color: "'+matcolor+'";');
-
-
 });//end document ready

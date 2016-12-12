@@ -27,7 +27,7 @@
              
                 {{Session::get('flash_message')}}
              </div>
-        @else  <img src="{{url('/images/frames_pexels_107911.jpg')}}" alt='Picnook Logo'> 
+        @else  <img src="{{url('/images/frames_pexels_107911.jpg')}}" id="ctrheadimage" alt='Picnook Logo'> 
         @endif
        </div>
         <nav>
@@ -60,9 +60,7 @@
     {{--Main page content will be yielded here--}}
     @yield('content')
     </section>
-    <footer>
-        &copy; {{ date('Y') }}
-    </footer>
+   
 
    {{--}} <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>--}}
     
@@ -74,5 +72,8 @@
         integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
         crossorigin="anonymous"></script>
         <script src="/js/scripts.js"></script>
+     <footer>
+        &copy; {{ date('Y') }}
+    </footer>
     </body>
 </html>
