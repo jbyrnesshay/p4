@@ -17,7 +17,7 @@
 
 </head>
 <body>
-    <header>
+    <header id="top">
         <div id="transp">
             <h1>PICNOOK</h1>
         </div>

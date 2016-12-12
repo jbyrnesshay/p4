@@ -13,12 +13,13 @@
 @stop
 
 @section('content')
-   test
+ <div id="welcomemessage">
+ <p>Picnook is the place to go to get photos framed for your home.</p>
 @stop
  
 
 
 @section('body')
-    <script src="/js/picnook/index.js"></script>
+    <script ></script>
  
 

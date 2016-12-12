@@ -11,10 +11,13 @@
 @stop
 
 @section('content')
+<div id="mainpagecontainer">
+  <section id="browsecontent">
     <h2>recommended </h2>
     @foreach ($pics as $key=>$pic)
         <div class="img test">
-         {{++$key}}
+         {{--for debugging --}}
+         {{--{{++$key}}--}}
         {{--<form method='POST' id="test" action='/create/{{$key}}'>
           {{ csrf_field()}}--}}
        
@@ -30,6 +33,10 @@
         </div>
         
     @endforeach
+    </section>
+    <section id="information">
+    <p>here is some content</p>
+    </section>
     {{--
     @if(sizeof($books)==0)
         You have not added any books, you can <a href='/book/create'>add a book now to get started</a>.
@@ -59,6 +66,7 @@
         </div>
       @endif
       --}}
+      </div>
 @stop
 
 

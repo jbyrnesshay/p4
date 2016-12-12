@@ -102,26 +102,29 @@ html {
 }
 
 body {
-	position: relative;
+	position: absolute;
 	font-family: Arial, sans-serif;
 	width: 100%;
 	height: 100%;
-
+	top: 0;
+	bottom: 0;
+	margin: 0;
+	padding: 0;
 }
-header {
+header#top {
 	width: 100%;
-	clear:  both
-	background: grey;
+	
+	background: #F8F8F8;
 	border: 1px solid black;
-	height: 7em;
-}
-section {
+	height: 4em;
 	 
-	 clear: both;
-	 margin: 0 auto;
-	 width: 95%;
+	position: fixed;
+	z-index: 10;
+	 
 
+	 
 }
+ 
 header img {
 	border: .5em solid #4B3621;
 	width: 200px;
@@ -133,38 +136,47 @@ header img {
 }
 
 header h1 {
+
 	margin-top: 0em;
 	margin-left: .5em;
 	margin-right: 2em;
-	font-size: 4em;
+	font-size: 3em;
 	opacity: .7;
-	padding: .15em .3em .3em .3em;
-	position: absolute;
+	left: 0em;
+	top: -.3em;
+	padding: .15em .3em .15em .3em;
+position: relative;
 	font-family: "Century Gothic";
+	color: block;
+	font-weight: bolder;
+	height: 3em;
+	display: inline-block;
 }
 /* transparent background for header brand image */
 div#transp {
-	width: 400px;
-	height: 100px;
-	display: inline-block;
+	width: 20em;
+	height: 3em;
+	display: block;
 	position: relative;
 	float: left;
 	margin-left: 4em;
 	margin-right: 2em;
-	margin-top: .25em;
+	margin-top: .5em;
 	margin-left: 4em;
 	border: 3px solid black;
 	border-radius: 10px;
-
+	z-index: 0;
+	
 }
 div#transp::after {
   content: "";
   background: url('/images/frames_pexels_107911.jpg');
-  opacity: 0.55;
+  opacity: 0.4;
   top: 0;
   left:0;
   bottom: 0;
   right: 0;
+
   position: absolute;
   z-index: -1;   
 }
@@ -173,7 +185,9 @@ div#transp::after {
 #ctrheadimage {
 	margin-top: .25em;
 	margin-bottom: .25em;
-	height: 6.5em;
+	position: absolute;
+	height: 3.4em;
+	left: 30em;
 }
 /* nav items */
 header nav ul li {
@@ -181,8 +195,10 @@ header nav ul li {
 	margin-left: 2em;
 }
 nav ul {
-	float: right;
+	 
 	margin-right: 3em;
+	position: fixed;
+	right: 0;
 }
 nav ul li a {
 	/*border: 1px solid black;*/
@@ -192,12 +208,15 @@ nav ul li a {
 
 footer {
 	bottom: 0;
-	 
+	
 	position: fixed;
 	width: 100%;
-	margin: 3em auto 0 auto;
+	margin: 3em auto 2em auto;
 	height: 2em;
-	background: grey;
+	background: #F8F8F8;
+	z-index: 10;
+	border-top: 2px solid black;
+	text-align:center;
 
 }
 
@@ -205,14 +224,17 @@ footer {
 /*******************************************/
 /*index page image selection */
 div.img {
-	border: solid black;/*cafe noir shade of brown */
+	border: 1px solid black;/*cafe noir shade of brown */
 	/*#321414 seal brown
 	#4F3A3C dark puce
 	#645452 wenge
 	#4B3621 cafe noir brown*/
-	border-width: 15px 15px 15px 15px;
+	/*border-width: 15px 15px 15px 15px;*/
 	display: inline-block;
 	margin: .5em;
+	height: 7em;
+	width: 9em;
+	position: relative;
 }
 /*single image selection display */
 img.browse, input[type="image"] {
@@ -227,8 +249,13 @@ img.browse, input[type="image"] {
 border-image:url(/images/wood/brush_alum.jpg) 15 20 30 30 repeat;*/
 } 
 img.index {
-	width: 100px;
-	height: 140px;
+	width: 100%;
+	height: 100%;
+	border: none;
+	position: relative;
+	 
+	 
+
 
 }
 
@@ -248,11 +275,21 @@ nav ul li {
 
 }
 span#greeting {
-	border: 5px solid blue;
-	border-radius: 5px;
-	background: antiquewhite;
+	border: 3px solid purple;
+	border-radius: 10px;
+	background: aqua;
 	text-transform: uppercase;
-	padding: .3em;
+	font-weight: bolder;
+	padding: .3em .3em 0 .3em ;
+	font-size: 1em;
+	letter-spacing: 0.15em;
+	text-align: center;
+	margin-top: 0;	
+	display: inline-block;
+	height: 2em;
+	top: -.1em;
+	color: purple;
+	float: left;
 
 }
 div#selectionoptions {
@@ -289,9 +326,10 @@ input[type="submit"] {
 	font-weight: bolder;
 	display: inline-block;
 	position: absolute;
-	height: 6.5em;
-	margin: .25em 0 .25em 3em;
-	padding-top: 3em;
+	height: 3.5em;
+	margin: .25em 0 .25em 5em;
+	padding-top: 1em;
+	left: 30em;
 }
 #purchase fieldset{
 	margin-left: 0;
@@ -307,4 +345,33 @@ section #displayselection {
 	display: inline-block;
 	padding: 1em;
 	width: 40%;
+}
+section #browsecontent {
+	float: left;
+	width: 60%;
+	padding-left: 0;
+	margin-left: 0;
+}
+section #information {
+	float: right;
+	width: 40%;
+	background: floralwhite;
+	height: inherit;
+	top: 0;
+	bottom: 0;
+	position: relative;
+	padding-right: 0;
+	border-left: 0;
+
+}
+div#mainpagecontainer {
+	clear: left;
+	position: relative;
+	width: 100%;
+	background: antiquewhite;
+	top: 4em;
+	bottom: 0;
+	height: 75em;
+	display: block;
+	margin: 0 auto;
 }
