@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 //use Picnook;
 use Picnook\Pic;
 use Picnook\User;
-use View, Auth, Session, Redirect, DB, Config;
+use View, Auth, Redirect, DB, Config;
+use Session;
 //use Auth;
 //use Picnook\View;
 
@@ -99,24 +100,26 @@ class PicController extends Controller
      */
     public function store(Request $request)
     {
-         $toAdd = $request->input('key');
+         //$toAdd = $request->input('key');
 
         //dd($toAdd);
-        $itemtoAdd='';
+        //$itemtoAdd='';
          //$itemtoAdd = Pic::where('id', 'LIKE', $toAdd)->first();
-         $itemtoAdd2 = $request->input('framethick');
+//itemtoAdd2 = $request->input('framethick');
          //dd($itemtoAdd2);
           $this->validate($request, [/*'title'=> 'required|min:3', 'published' => 'required|min:4|numeric', 'cover' => 'required|url', 'purchase_link' => 'required|url', */]);
 
-        $toAdd = $request->input('key');
+         $toAdd = $request->input('key');
         //dd($toAdd);
         $user=Auth::user();
         $userid=$user->id;
         //dd($user);
         $list = $user->pics()->get();
-        
+        //dd($list);
+        $itemtoAdd='';
         //dd($list);
         foreach ($list as $item) {
+           
             //$toAdd = $toAdd+1;
             if ($item->id == $toAdd) {
                // if(!(\Auth::check())) {
@@ -152,11 +155,11 @@ class PicController extends Controller
                    //DB::table('users')
             //->where('id', 1)
             //->update(['votes' => 1]);
-            
+                return redirect('/');
                 }
                 //'link'=>'/images/pexels-photo-65035.jpeg'
                     //dd($itemtoAdd->mat_thickness);
-                    return redirect('/');
+                    
                 }
             }
       }
