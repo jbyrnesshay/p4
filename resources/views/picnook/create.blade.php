@@ -17,7 +17,9 @@
      {{--dd({{$item->pivot->frame_thickness}});--}}    
      {{--<img class="wishitem" src = "{{$item->link}}" style="border-width:{{$item->pivot->frame_thickness}}; border-color: black; width: 50px; height: 50px">--}}
      <div class="wishcontainer">
-        <div class="frame" style="border: {{$item->pivot->frame_thickness.'em'}} solid {{$item->pivot->frame_color}} ">
+     <?php $newvalue =($item->pivot->frame_thickness) / 3;
+           ?>
+        <div class="frame" style="border: {{$newvalue.'em'}} solid {{$item->pivot->frame_color}} ">
             <div class="padding">
             {{--}} <img class="wishitem" src = "{{$item->link}}" style="border: {{$item->pivot->frame_thickness."px"}} solid blue; width: 50px; height: 50px">--}}
                 <img class="wishitem" src = "{{$item->link}}" >

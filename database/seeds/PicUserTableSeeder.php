@@ -27,11 +27,21 @@ class PicUserTableSeeder extends Seeder
     	foreach ($items as $item) {
 
     		$addtoList = Pic::where('id', 'like', $item)->first();
-        $addtoList->mat_color = 'white';
-        $addtoList->frame_color = 'silver';
-        $addtoList->frame_thickness = '.5em';
-        $addtoList->mat_thickness = '.5em';
+        
+       
     	$user->pics()->save($addtoList);	
+       $matchThese = ['pic_id' => $addtoList->id, 'user_id' => $user->id];
+       
+                   DB::table('pic_user')->where($matchThese)->update(['frame_color' => 'silver', 'mat_color'=>'white', 'frame_thickness'=>'.5', 'mat_thickness'=>'.5']);
+
+      /* $addtoList->pivot->mat_color = 'white';
+        $addtoList->pivot->frame_color = 'silver';
+        $addtoList->pivot->frame_thickness = '.5em';
+        $addtoList->pivot->mat_thickness = '.5em';*/
+        //$user->pics()->with('frame_thickness', .4)->save($addtoList);  
+ 
+
+
     	}
     }
   }
