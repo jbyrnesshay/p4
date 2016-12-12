@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 //use Picnook;
 use Picnook\Pic;
 use Picnook\User;
-use View, Auth, Session, Redirect;
+use View, Auth, Session, Redirect, DB, Config;
 //use Auth;
 //use Picnook\View;
 
@@ -94,14 +94,25 @@ class PicController extends Controller
      */
     public function store(Request $request)
     {
+         $toAdd = $request->input('key');
+
+        //dd($toAdd);
+        $itemtoAdd='';
+         //$itemtoAdd = Pic::where('id', 'LIKE', $toAdd)->first();
+         $itemtoAdd2 = $request->input('framethick');
+         //dd($itemtoAdd2);
           $this->validate($request, [/*'title'=> 'required|min:3', 'published' => 'required|min:4|numeric', 'cover' => 'required|url', 'purchase_link' => 'required|url', */]);
 
         $toAdd = $request->input('key');
+        //dd($toAdd);
         $user=Auth::user();
+        $userid=$user->id;
+        //dd($user);
         $list = $user->pics()->get();
-        $itemtoAdd='';
+        
         //dd($list);
         foreach ($list as $item) {
+            //$toAdd = $toAdd+1;
             if ($item->id == $toAdd) {
                // if(!(\Auth::check())) {
                 Session::flash('flash_message', 'You have already added this one');
@@ -110,14 +121,41 @@ class PicController extends Controller
             else {
                  $itemtoAdd = Pic::where('id', 'LIKE', $toAdd)->first();
                  //dd($itemtoAdd);
+
+                 $frame_color = $request->input('frameselect');
+                 $frame_thickness = $request->input('framethick');
+                 if ($request->input('matselect')==null){
+                    $mat_color = '';
+                 }
+                 else $mat_color = $request->input('matselect');
+                 $mat_thickness = $request->input('matthick');
+                 /* $a = $request->input('frameselect');
+                 $b = $request->input('framethick');
+                 $c= $request->input('matselect');
+                 $d= $request->input('matthick');*/
                 if (!$list->contains($itemtoAdd->id)) 
                 {
                     $user->pics()->save($itemtoAdd);
+                    //$wheretoAdd =DB::table('pic_user')->where('pic_id', 'LIKE', $toAdd)->first();
+                    //DB::table('pic_user')->insert([
+                   //$wheretoAdd->update(['frame_color'=>$itemtoAdd->frame_color]);
+                    //dd($toAdd);
+                    //dd($frame_color);
+                    $matchThese = ['pic_id' => $toAdd, 'user_id' => $userid];
+                   DB::table('pic_user')->where($matchThese)->update(['frame_color' => $frame_color, 'mat_color'=>$mat_color, 'frame_thickness'=>$frame_thickness, 'mat_thickness'=>$mat_thickness]);
+                   //DB::table('pic_user')->save();
+                   //DB::table('users')
+            //->where('id', 1)
+            //->update(['votes' => 1]);
+            
+                }
+                //'link'=>'/images/pexels-photo-65035.jpeg'
+                    //dd($itemtoAdd->mat_thickness);
                     return redirect('/');
                 }
             }
       }
-    }
+    
     
         
 

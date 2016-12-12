@@ -4,7 +4,7 @@
 /*:before is dynamically style-changed with javascript, not possible with jquery*/
 div#padding:before {
 	content: '';
-	border: .25em solid;
+	border: solid 0em;
 	top: 0;
 	right: 0;
 	bottom: 0;

@@ -18,7 +18,7 @@ $(document).ready(function() {
 		bwidth = '.25em';
 
 		if (matcolor == 'none') {
-			var firstrule = mainstylesheet.cssRules[0].style.borderWidth = 0;
+			firstrule = mainstylesheet.cssRules[0].style.borderWidth = 0;
 		}
 		else {
 			mainstylesheet.cssRules[0].style.borderWidth=bwidth;
@@ -29,7 +29,7 @@ $(document).ready(function() {
 		fwidth = $('#framethick').val();
 		mainstylesheet.cssRules[1].style.borderWidth=fwidth+'em';
 	});
-	$('#matwidth').on("input", function(){
+	$('#matthick').on("input", function(){
 		mwidth= $(this).val();
 		matcolor= $('#matselect').val();
 		if (matcolor == 'none') {
