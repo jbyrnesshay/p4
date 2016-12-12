@@ -49,10 +49,13 @@ class PicController extends Controller
     else {
         $data = ['pics'=>$pics];
     }
-         
+         $data2 = DB::table('pic_user')->where('user_id', $userid)->orderBy('pic_id', 'desc')->get();
+                $y=$data;
+                $z=$data2->toArray();
+                $test =array_merge_recursive($y, $z);
          //dd($user->first_name);
          //dd($pics);
-        return View::make('picnook.index')->with($data);
+        return View::make('picnook.index')->with($data)->with('test', $test);
 
        // (['pics'=>$pics], ['user'=> $user]);
     }
@@ -77,18 +80,16 @@ class PicController extends Controller
             $name = '';
             $list = '';
         }
-        
+        $data = DB::table('pic_user')->where('user_id', $userid)->orderBy('pic_id', 'desc')->get();
+                $y=$list->toArray();
+                $z=$data->toArray();
+                $test =array_merge_recursive($y, $z);
         
         //$data= $pic;
         //dd($pic->link);
         //dd($request->key);
         //$data=$request->
-        //public function pics() {
-        //return $this->belongsToMany('Picnook\Pic', 'pic_user')->withTimestamps()->withPivot('mat_color', 'mat_thickness', 'frame_color', 'frame_thickness');
-
-
-
-        return View::make('picnook.create')->with('pic', $pic)->with('name', $name)->with('list', $list)->with('key', $key);
+        return View::make('picnook.create')->with('pic', $pic)->with('name', $name)->with('list', $list)->with('key', $key)->with('test', $test);
     }
 
     /**
@@ -113,8 +114,8 @@ class PicController extends Controller
         $user=Auth::user();
         $userid=$user->id;
         //dd($user);
-        $list = $user->pics()->get();
-        
+        $list = $user->pics()->orderBy('pic_id', 'desc')->get();
+        //dd($list);
         //dd($list);
         foreach ($list as $item) {
             //$toAdd = $toAdd+1;
@@ -154,9 +155,25 @@ class PicController extends Controller
             //->update(['votes' => 1]);
             
                 }
+                //$data1=$user->pics()->get();
+                // $list = $user->pics()->get();
+        
+                $data = DB::table('pic_user')->where('user_id', $userid)->orderBy('pic_id', 'desc')->get();
+                $y=$list->toArray();
+                $z=$data->toArray();
+                $test =array_merge_recursive($y, $z);
+                //dd($test[0]['pivot']['mat_color']);
+                 //dd($test[0]['pivot']['mat_color']);
+                /*
+                foreach($list as $item) {
+                    $key = $item->pic_id;
+                    $data->pic_id = $key;
+                    $item->$frame_item_color = $pic_id->frame_color; 
+                }*/
+                //$data = array('frame_color'=>$frame_color, 'mat_thickness'=>$mat_thickness, 'frame_thickness'=>$frame_thickness);
                 //'link'=>'/images/pexels-photo-65035.jpeg'
                     //dd($itemtoAdd->mat_thickness);
-                    return redirect('/');
+                    return redirect('/')->with($test);
                 }
             }
       }
