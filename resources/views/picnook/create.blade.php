@@ -75,9 +75,15 @@
     <input type="hidden" name='key' value={{$key}}>
     <label for = 'addwishlist'>add to wishlist?</label>
     <input type='submit' value="Submit" id="addwishlist">
+
     
     </fieldset>
     </form>    
+    <div id="browse">
+    
+    <button id="keepbrowse"><a href="/home">keep browsing?</a></button>
+    </a>
+    </div>
     </div>
     <div id="purchase"> 
     <form id="purchasepoint">

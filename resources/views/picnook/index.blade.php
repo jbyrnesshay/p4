@@ -17,7 +17,10 @@
     @foreach ($pics as $key=>$pic)
         <div class="img test">
          {{--for debugging --}}
-         {{--{{++$key}}--}}
+        
+         @php (++$key)
+         
+
         {{--<form method='POST' id="test" action='/create/{{$key}}'>
           {{ csrf_field()}}--}}
        

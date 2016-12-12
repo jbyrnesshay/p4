@@ -15,6 +15,7 @@
 @section('content')
  <div id="welcomemessage">
  <p>Picnook is the place to go to get photos framed for your home.</p>
+ </div>
 @stop
  
 

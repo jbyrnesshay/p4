@@ -375,3 +375,36 @@ div#mainpagecontainer {
 	display: block;
 	margin: 0 auto;
 }
+nav {
+	 
+}
+div#welcomemessage {
+	 
+	margin-top: 5em;
+	margin-left: 4em;
+	background: pink;
+	display: block;
+	border-radius: 10px;
+	position: absolute;
+	height: 5em;
+}
+#keepbrowse {
+	 position: absolute;
+	 margin-top: 1.75em;
+	 margin-left: 1.5em;
+	 padding: .6em .5em .5em .5em;
+	  
+}
+#keepbrowse a {
+	text-decoration: none;
+	text-transform:  uppercase;
+	font-weight:bolder;
+}
+div#browse {
+	width: 100%;
+	border: 1px solid black;
+	position: relative;
+	position:absolute;
+	height: 5.5em;
+	background: antiquewhite;
+}

@@ -21,6 +21,9 @@ $(document).ready(function() {
 			firstrule = mainstylesheet.cssRules[0].style.borderWidth = 0;
 		}
 		else {
+			if ($('#matthick').val()>.25) {
+			bwidth= $('#matthick').val();
+			}
 			mainstylesheet.cssRules[0].style.borderWidth=bwidth;
 			mainstylesheet.cssRules[0].style.borderColor=matcolor;
 		}
@@ -33,7 +36,10 @@ $(document).ready(function() {
 		mwidth= $(this).val();
 		matcolor= $('#matselect').val();
 		if (matcolor == 'none') {
-			var firstrule = mainstylesheet.cssRules[0].style.borderWidth = 0+'em';
+			//$('#matselect').value('white') ;
+			document.getElementById('matselect').value = 'white';
+			mainstylesheet.cssRules[0].style.borderWidth=mwidth+'em';
+			//var firstrule = mainstylesheet.cssRules[0].style.borderWidth = 0+'em';
 
 		}
 		else {
