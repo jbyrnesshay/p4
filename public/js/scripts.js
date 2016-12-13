@@ -81,6 +81,12 @@ $(document).ready(function() {
 	 	$('.details').toggleClass("visiblebutton");
 	 	$('.delete').toggleClass("visiblebutton"); 
 	 });
+	
+  
+
+
+ 
+  
 	 
  
 

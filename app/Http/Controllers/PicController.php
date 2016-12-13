@@ -124,7 +124,7 @@ class PicController extends Controller
             if ($item->id == $toAdd) {
                // if(!(\Auth::check())) {
                 Session::flash('flash_message', 'You have already added this one');
-                return redirect('/create/'.$toAdd);
+                return redirect('/pics/create/'.$toAdd);
             }
             else {
                  $itemtoAdd = Pic::where('id', 'LIKE', $toAdd)->first();
@@ -207,9 +207,29 @@ class PicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+   public function destroy($id)
+    {  
+        $user= Auth::user();
+       // $pic=$user->pics()->find($id);
+       // $pic=Pic::find($id);
+      /*  if(is_null($id)) {
+            Session:flash('message', 'pic not found');
+            return redirect('/');
+        }*/
+
+        /*if($->tags()){
+            $book->tags()->detach();
+        }*/
+        $matchThese = ['pic_id' => $id, 'user_id' => $user->id];
+       
+                   DB::table('pic_user')->where($matchThese)->delete(); 
+        //$pic->delete();
+        #DB::table('users')->delete();
+
+        #DB::table('users')->where('votes', '>', 100)->delete();
+        Session::flash('flash_message', 'your item was deleted');
+        return redirect('/');
+
     }
 
     public function postSearch(Request $request) {

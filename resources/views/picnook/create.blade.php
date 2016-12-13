@@ -6,6 +6,7 @@
 
 
 @section('head')
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link href="/css/picnook.css" type="text/css" rel='stylesheet'>
 @stop
 
@@ -21,9 +22,15 @@
      {{--dd({{$item->pivot->frame_thickness}});--}}    
      {{--<img class="wishitem" src = "{{$item->link}}" style="border-width:{{$item->pivot->frame_thickness}}; border-color: black; width: 50px; height: 50px">--}}
      <div class="wishcontainer">
+    <form method="POST" id="deleteform" action='/pics/{{ $item->id }}'>
+     {{ method_field('DELETE') }}
+     {{ csrf_field() }}
+    <input type="hidden" value = {{$item->id}}>
 
-    <button class="delete">delete</button>
+    <button type="submit" class="delete" value="delete">delete</button>
+    </form>
     <button class="edit">edit </button>
+
      <?php $newvalue =($item->pivot->frame_thickness) / 3;
            ?>
         <div class="frame" style="border: {{$newvalue.'em'}} solid {{$item->pivot->frame_color}} ">
@@ -33,11 +40,13 @@
             </div>     
             </div>
             <button class="details">details</button>
+            
     </div>
      @endforeach
      @endif
-     
+    
     </div>
+   
     {{--here ends display of wishlist--}}
     <h2>current selection </h2>
     <section id="displayselection">
@@ -109,12 +118,17 @@
 
     </form>
     </div>
+
     </section>
+
 @stop
  
 
 
 @section('body')
+<script src='http://code.jquery.com/ui/1.12.1/jquery-ui.js'></script>
+
+@stop
      
  
 

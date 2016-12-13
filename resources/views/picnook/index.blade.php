@@ -21,12 +21,12 @@
          @php (++$key)
          
 
-        {{--<form method='POST' id="test" action='/create/{{$key}}'>
+        {{--<form method='POST' id="test" action='/pics/create/{{$key}}'>
           {{ csrf_field()}}--}}
        
         {{--<input type="image" src={{$pic->link}} id='{{$key}}' value={{$key}}>--}}
-       <a href="/create/{{$key}}"> <img class="index" src={{$pic->link}}> </a>  
-        {{--<form method="get" action="/create/{{$key}}">--}
+       <a href="/pics/create/{{$key}}"> <img class="index" src={{$pic->link}}> </a>  
+        {{--<form method="get" action="/pics/create/{{$key}}">--}
         {{--<input type="image" src={{$pic->link}} id='{{$key}}' value={{$key}}>--} 
          
        {{--<img src='{{$pic->link}}'>
