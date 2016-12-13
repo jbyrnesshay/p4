@@ -10,7 +10,20 @@
 | to using a Closure or controller method. Build something great!
 |
 */
+/*Route::get('/practice', 'PracticeController@index')->name('practice.index');*/
+for($i = 0; $i < 100; $i++) {
+    Route::get('/practice/'.$i, 'PracticeController@example'.$i)->name('practice.example'.$i);
+}
  
+Route::get('/search', 'PageController@search')->name('search');
+
+# View all books
+Route::get('/books', 'BookController@index')->name('books.index')->middleware('auth');
+Route::get('/', 'PageController@welcome');  
+//Route::get('/', 'BookController@index')->name('books.index');
+
+# Display form to add a new book
+Route::get('/books/create', 'BookController@create')->name('books.create')->middleware('auth');
 Route::get('/', 'PageController@welcome'
 )->name('welcome');
 

@@ -178,6 +178,8 @@ return [
         Picnook\Providers\EventServiceProvider::class,
         Picnook\Providers\RouteServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        Picnook\Providers\ComposerServiceProvider::class,
+        
 
     ],
 
@@ -227,7 +229,12 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'providers' => 
+            // [...]
+            App\Providers\ComposerServiceProvider::class,
+      
 
-    ],
+ 
 
+]
 ];

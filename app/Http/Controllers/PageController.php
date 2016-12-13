@@ -15,4 +15,9 @@ class PageController extends Controller
 
     else return view('welcome');
 }
+
+public function search() {
+    return view('picnook.search');
+}
+
 }

@@ -11,12 +11,14 @@
 
 @section('content')
 <div id="wishlistcontainer">
-    <h2> your list </h2>
+    <h2> your picnook list: </h2>
     @if (Auth::check())
      @foreach ($list as $item)
      {{--dd({{$item->pivot->frame_thickness}});--}}    
      {{--<img class="wishitem" src = "{{$item->link}}" style="border-width:{{$item->pivot->frame_thickness}}; border-color: black; width: 50px; height: 50px">--}}
      <div class="wishcontainer">
+
+
      <?php $newvalue =($item->pivot->frame_thickness) / 3;
            ?>
         <div class="frame" style="border: {{$newvalue.'em'}} solid {{$item->pivot->frame_color}} ">
@@ -75,16 +77,19 @@
     <input type="hidden" name='key' value={{$key}}>
     <label for = 'addwishlist'>add to wishlist?</label>
     <input type='submit' value="Submit" id="addwishlist">
-
+    
     
     </fieldset>
-    </form>    
+    </form>   
+
     <div id="browse">
     
     <button id="keepbrowse"><a href="/home">keep browsing?</a></button>
     </a>
     </div>
-    </div>
+    </div> 
+    
+
     <div id="purchase"> 
     <form id="purchasepoint">
     <fieldset>
