@@ -116,8 +116,11 @@ class PicController extends Controller
         //dd($user);
         $list = $user->pics()->get();
         //dd($list);
+        
+        //dd($list);
         $itemtoAdd='';
         //dd($list);
+        if (isset($list)){
         foreach ($list as $item) {
            
             //$toAdd = $toAdd+1;
@@ -125,8 +128,8 @@ class PicController extends Controller
                // if(!(\Auth::check())) {
                 Session::flash('flash_message', 'You have already added this one');
                 return redirect('/pics/create/'.$toAdd);
-            }
-            else {
+            }}
+            //else {
                  $itemtoAdd = Pic::where('id', 'LIKE', $toAdd)->first();
                  //dd($itemtoAdd);
 
@@ -141,8 +144,8 @@ class PicController extends Controller
                  $b = $request->input('framethick');
                  $c= $request->input('matselect');
                  $d= $request->input('matthick');*/
-                if (!$list->contains($itemtoAdd->id)) 
-                {
+                //if (!$list->contains($itemtoAdd->id)) 
+                //{
                     $user->pics()->save($itemtoAdd);
                     //$wheretoAdd =DB::table('pic_user')->where('pic_id', 'LIKE', $toAdd)->first();
                     //DB::table('pic_user')->insert([
@@ -161,8 +164,8 @@ class PicController extends Controller
                     //dd($itemtoAdd->mat_thickness);
                     
                 }
-            }
-      }
+            
+      
     
     
         
