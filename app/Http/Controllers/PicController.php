@@ -220,4 +220,5 @@ class PicController extends Controller
     # Return the view with the books
     return view('picnook.search-ajax')->with('pics',$pics);
 }
+
 }

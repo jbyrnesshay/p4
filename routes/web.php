@@ -16,6 +16,7 @@ for($i = 0; $i < 100; $i++) {
 }
  
 Route::get('/search', 'PageController@search')->name('search');
+Route::post('/pic/search', 'PicController@postSearch')->name('postSearch');
 
 # View all books
 Route::get('/books', 'BookController@index')->name('books.index')->middleware('auth');

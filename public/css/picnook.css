@@ -65,6 +65,7 @@ div#wishlistcontainer {
 	margin-top: 0;
 	padding: .5em;
 	text-align: center;
+	margin-bottom: 0;
 }
 img.wishitem {
 	width: 100%;
@@ -435,4 +436,15 @@ div#browse {
 
 #searchtest {
 	margin-top: 7em;
+}
+
+.edit, .details, .delete {
+	visibility: hidden;
+	text-transform:uppercase;
+	padding: .15;
+	font-size: .5em;
+}
+
+.visiblebutton {
+	visibility:visible;
 }

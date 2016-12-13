@@ -3,9 +3,10 @@
         No results found.
     @endif
 
-    @foreach($pic as $pic)
+    @foreach($pics as $pic)
         <div class='pic'>
-            <a href='/pic/show/{{$pic->id}}'>{{ $pic->title }}</a>
+           {{--}} <a href='/pic/show/{{$pic->id}}'>{{ $pic->title }}</a>--}}
+              <img src ='{{$pic->link}}'>{{ $pic->title }}</a>
         </div>
     @endforeach
  

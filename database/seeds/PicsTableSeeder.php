@@ -32,7 +32,7 @@ class PicsTableSeeder extends Seeder
 		DB::table('pics')->insert([
         	'created_at' => Carbon\Carbon::now()->toDateTimeString(),
         	'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'title'='brown',
+            'title'=>'brown',
         	'link'=>'/images/pexels-photo-101542.jpeg'
 		]);
 		 DB::table('pics')->insert([
