@@ -29,6 +29,21 @@
         
     </form>
     </div>
+    <div id="searchable">
+
+      
+      <form method='POST' action='/pic/search'>
+
+    {{ csrf_field()}}
+
+    <input type='text' name='searchTerm'>
+  <button type="submit" name="searchbutton" id="searchbutton" value="Submit">
+      Search?
+      </button>
+     
+
+</form>
+      </div>
   <section id="browsecontent">
     
      

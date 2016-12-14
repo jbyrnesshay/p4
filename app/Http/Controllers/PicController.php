@@ -246,8 +246,11 @@ class PicController extends Controller
     public function postSearch(Request $request) {
 
     # Do the search with the provided search term
-    $pics = Pic::where('title','LIKE','%'.$request->searchTerm.'%')->get();
-
+   // $pics = Pic::where('title','LIKE','%'.$request->searchTerm.'%')->where('category', '=', $request->searchTerm)->get();
+    $pics = Pic::where('category','LIKE','%'.$request->searchTerm.'%', 'OR')->
+    where('title','LIKE','%'.$request->searchTerm.'%','OR')->get();
+   
+     
     # Return the view with the books
     return view('picnook.search-ajax')->with('pics',$pics);
 }
