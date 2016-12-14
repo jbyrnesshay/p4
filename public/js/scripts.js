@@ -2,7 +2,9 @@ $(document).ready(function() {
 	headsource = '<img id="ctrheadimage" src="/images/frames_pexels_107911.jpg">';
 	mainstylesheet = document.styleSheets[2];
 
- 
+ //$('#pg1wishtlistcontainer').css("display", "none");
+  //$('#pg1wishtlistcontainer').css("display", "none");
+
 	 	 
 	//flash messages
 	if ($('#flash_message').html()) {
@@ -58,20 +60,7 @@ $(document).ready(function() {
 	}
 	});
 	//
-	 /*
-	 $('#options').toggle(function() {
-	 	 
-	 
-	  
-	 	$('#edit').css("visibility", "visible");
-	 	$('#details').css('visibility', "visible");
-	 	$('#delete').css("visibility", 'visible');
-	 }, function(){
-	 	$('#edit').css("visibility", "hidden");
-	 	$('#details').css('visibility', "hidden");
-	 	$('#delete').css("visibility", 'hidden');
-
-	 });*/
+ 
 
 	 $('#options').click(function() {
 	 	 
@@ -82,12 +71,75 @@ $(document).ready(function() {
 	 	$('.delete').toggleClass("visiblebutton"); 
 	 });
 	
-  
+   
 
-
+  $('#openlist').click(function(){
+  	//alert('ah');
+   
+  	$('#pg1rightcontent').toggle();
+  	$('#pg1wishlistcontainer').toggle();
+  	});
  
-  
-	 
- 
+ 	 //opensearch() { 
+ 	 /*
+ 	 $('#opensearch').click(function(){
 
-});//end document ready
+ 	 	if ($('#pg1rightcontent').css('display') == 'none'){
+ 	 	thingis = $('#pg1wishlistcontainer');
+
+ 	 }
+ 	 else {
+ 	 	thingis = document.getElementById('pg1rightcontent');}
+ 	 //$('#pg1wishlistcontainer');
+
+ 	 thingis.css('display','none');
+ 	 searchstate = $('#pg1search');
+ 	 searchstate.toggle();
+ 	 //$('#pg1search').toggle();
+ 	});
+ 	 //}
+
+ 	//openlist();
+ 	//opensearch();
+ 	 //alert(thingis);
+ */
+
+ $('#category').change(function() {
+ 	//alert('kl');
+ 	//category= $('#categories').val();
+ 		//alert(category);
+ 	//id='#'+category;
+ 	//$(id).prop('selected', 'true');
+ 	$value=$('#category').val();
+ 	//document.getElementById('#categoryform').submit();
+ 	document.forms["categoryform"].submit();
+ 	//$("categoryform").submit();
+ 	//$('#browsecontent h2').text($value);
+ 	
+});
+
+$('.delete').click(function(e){
+ 
+    var x;
+    if (confirm("REALLY DELETE??") == true) {
+       x= 2;
+    } else {
+       x=0;
+       e.preventDefault();
+    }});
+ 	
+ 	//$('#categories select').val(category);
+
+  
+ 
+});
+
+ /*
+ category=$('#categories').val();
+ 	$("categoryform").submit();
+ 	$('#categoryform').on('submit', function() {
+ 		category= $('#categories').val();
+ 		alert(category);
+ 	id='#'+category;
+ 	$(id).prop('selected', 'true');
+ });});*/

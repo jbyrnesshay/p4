@@ -9,7 +9,7 @@
     <meta charset='utf-8'>
     
     <!-- Latest compiled and minified CSS -->
-<script src="https://use.fontawesome.com/ea0bd51253.js"></script>
+<!--<script src="https://use.fontawesome.com/ea0bd51253.js"></script>-->
 <link href="/css/picnook.css" id="mainstyles" type='text/css' rel='stylesheet'>
 
     {{-- Yield any page specific CSS files or anything else you might want in the head --}}
@@ -19,7 +19,7 @@
 <body>
     <header id="top">
         <div id="transp">
-            <h1>PICNOOK</h1>
+            <h1><i class="fa fa-home"></i>PICNOOK</h1>
         </div>
         <div id="headimage">
          @if(Session::get('flash_message') != null)
@@ -36,11 +36,11 @@
                 <li><a href="/register">register</a></li>
                 <li><a href="/login">sign in</a></li>
                 @else 
-                    <span id="greeting">
+                    <li id="greeting">
                     @if (isset($name))
                         {{"hi ".$name."!"}}
                     @endif
-                    </span>
+                    </li>
                 <li><a href="/logout">sign out</a></li>
                 @endif
                 <li><a href="/">home</a></li>

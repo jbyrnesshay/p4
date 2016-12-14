@@ -25,8 +25,11 @@ class CreatePicsTable extends Migration
             #the rest of the fields...
             $table->string('title')->nullable();
            
+            $table->string('category')->nullable();
             
             $table->string('link');
+
+
             /*
             $table->string("mat_color")->nullable();
             $table->string('mat_thickness')->nullable();

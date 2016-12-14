@@ -19,32 +19,39 @@ class PicController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    /*public function getFiles() {
-        $files = [];
-       $directory = public_path();
-       // $files = \File::allFiles($directory);
-        $files = glob('$directory\images\*.jpeg');
-        
-        //foreach($files as $file){
-             
-            //$pics[]=$file->getPathname().'\\'.$file->getFilename();
-        //}
-        dd($files);
-    }*/
+    
     public function index(Request $request)
     {   
+        //dd($request->input($category));
+        
+        $test = $request->input('category');
+        if (isset($test)){
+           $category = $test;
+        }
 
+        
        /* $directory = public_path();
 
         $files = \File::allFiles($directory);
         foreach($files as $file)
-            {echo(string)$file->getfileName(),"\n";}
-         */$pics = Pic::all();
-
+            {echo(string)$file->getfileName(),"\n";}*/
+        if (isset($category)){
+             
+         $pics = Pic::where('category', $category)->get();
+        // dd($category);
+     }
+     else {
+        $category='Click Pic to Customize';
+        $pics = Pic::All();
+}
             if (Auth::user()) {
             $user = Auth::user();
+            $list = $user->pics()->get();
+            
+             
 
-        $data = array('name'=>$user->first_name, 'pics'=>$pics);
+
+        $data = array('name'=>$user->first_name, 'pics'=>$pics, 'list'=>$list, 'category'=>$category);
     }
 
     else {
@@ -127,7 +134,8 @@ class PicController extends Controller
             if ($item->id == $toAdd) {
                // if(!(\Auth::check())) {
                 Session::flash('flash_message', 'You have already added this one');
-                return redirect('/pics/create/'.$toAdd);
+               return \Redirect::back();//->with('status',
+                //redirect('/')->with('flash_message');
             }}
             //else {
                  $itemtoAdd = Pic::where('id', 'LIKE', $toAdd)->first();
@@ -158,14 +166,14 @@ class PicController extends Controller
                    //DB::table('users')
             //->where('id', 1)
             //->update(['votes' => 1]);
-                return redirect('/');
-                }
+                return redirect('/pics/create/'.$toAdd);
+                
                 //'link'=>'/images/pexels-photo-65035.jpeg'
                     //dd($itemtoAdd->mat_thickness);
                     
-                }
+                
             
-      
+      }}
     
     
         
@@ -231,7 +239,7 @@ class PicController extends Controller
 
         #DB::table('users')->where('votes', '>', 100)->delete();
         Session::flash('flash_message', 'your item was deleted');
-        return redirect('/');
+        return \Redirect::back();
 
     }
 
