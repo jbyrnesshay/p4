@@ -24,6 +24,29 @@ div#frame {
 	display: inline-block;
 
 }
+
+div#epadding:before {
+	content: '';
+	border: solid 0em;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+}
+div#eframe {
+	width: 55%;
+	height: 250px;
+	border: solid black;
+	padding: 0em;
+	z-index: 5;
+	/*-width: 25px 25px 25px 25px;*/
+	position: relative;
+	display: inline-block;
+
+}
 img#currentbrowse {
 	width: 100%;
 	height: 100%;
@@ -198,12 +221,13 @@ div#transp::after {
 }
 /* end transparent background for brand image */
 
-#ctrheadimage {
+#ctrhead{
 	margin-top: .25em;
 	margin-bottom: .25em;
 	position: absolute;
 	height: 3.4em;
 	left: 30em;
+	display:inline-block;
 }
 /* nav items */
 header nav ul li {
@@ -541,8 +565,73 @@ margin-bottom:0;
 }
 
 #searchable {
-	width: 10em;
+	width: 7em;
 	top: 1.3em;
 	left: 27em;
 	position: absolute;
+}
+#searchable form {
+	display:inline-block;
+	width: 20em;
+}
+
+.searchresult {
+	width: 275px;
+	float: left;
+	display:inline-block;
+	height: 250px;
+	margin-left: 2em;
+	margin-bottom: 1em;
+	margin-top:1em;
+	border: 1px solid black;
+}
+.searchresult img {
+	width: 90%;
+	height: 75%;
+	position: relative;
+	margin: .3em auto 0 auto;
+	display:block;
+}
+.searchresult h3 {
+	display: inline-block;
+	text-transform:uppercase;
+	font-size: .9em;
+	font-family: "arial Narrow";
+	margin-bottom: 0;
+	margin-top:.5em;
+	margin-left: .8em;	
+	position:relative;
+
+}
+ 
+.searchresult span {
+	color: blue;
+	font-family: "arial narrow";
+}
+.searchresult:nth-of-type(2) {
+	margin-bottom:1em;
+}
+#welcomepagecontainer section {
+	margin: 0 auto;
+	font-size: 3em;
+ 
+	width: 80%;
+	text-align:center;
+	border: 1px solid red;
+	margin-top: 4em;
+}
+div#welcomepage {
+/*display:none;*/
+ 
+ 
+}
+#searchable h3 {
+	font-size: .85em;
+	font-weight:normal;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top:-1.3em;
+	text-transform:uppercase;
+	width: 20em;
 }

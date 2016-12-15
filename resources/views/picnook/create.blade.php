@@ -26,7 +26,7 @@
      {{--<img class="wishitem" src = "{{$item->link}}" style="border-width:{{$item->pivot->frame_thickness}}; border-color: black; width: 50px; height: 50px">--}}
      <div class="wishcontainer">
     <form method="POST" id="deleteform" action='/pics/{{ $item->id }}'>
-     {{ method_field('DELETE') }}
+     {{ method_field('DELETE')}}
      {{ csrf_field() }}
     <input type="hidden" value = {{$item->id}}>
 

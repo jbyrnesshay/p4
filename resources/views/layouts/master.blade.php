@@ -17,6 +17,7 @@
 
 </head>
 <body>
+
     <header id="top">
         <div id="transp">
             <h1><i class="fa fa-home"></i>PICNOOK</h1>
@@ -27,7 +28,7 @@
              
                 {{Session::get('flash_message')}}
              </div>
-        @else  <img src="{{url('/images/frames_pexels_107911.jpg')}}" id="ctrheadimage" alt='Picnook Logo'> 
+        @else  <h2 id="ctrhead">your pics</h2> 
         @endif
        </div>
         <nav>

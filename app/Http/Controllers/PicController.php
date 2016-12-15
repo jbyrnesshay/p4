@@ -196,8 +196,21 @@ class PicController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+
+    {   
+        $user = Auth::user();
+        //dd($user->pics()->get());
+        //dd($user);
+        
+         $pics=$user->pics()->get();
+         $matchThese = ['pic_id' => $id, 'user_id' => $user->id];
+
+         $pic_info = Pic::where('id', '=', $id)->first();
+         $pic_config = DB::table('pic_user')->where($matchThese)->first(); 
+         //dd($pic_config);
+            //dd($pic);
+          $data = array('pic_config'=>$pic_config,'pics'=>$pics, 'pic_info'=>$pic_info );
+         return view('picnook.edit')->with($data);
     }
 
     /**
@@ -247,8 +260,11 @@ class PicController extends Controller
 
     # Do the search with the provided search term
    // $pics = Pic::where('title','LIKE','%'.$request->searchTerm.'%')->where('category', '=', $request->searchTerm)->get();
-    $pics = Pic::where('category','LIKE','%'.$request->searchTerm.'%', 'OR')->
-    where('title','LIKE','%'.$request->searchTerm.'%','OR')->get();
+
+        $test  = substr($request->searchTerm, 0, 3);
+
+    $pics = Pic::where('category','LIKE','%'.$test.'%', 'OR')->
+    where('title','LIKE','%'.$test.'%','OR')->get();
    
      
     # Return the view with the books

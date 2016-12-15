@@ -1,26 +1,51 @@
  
  
 
-@extends('layouts.master')
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>
+        {{-- Yield the title if it exist, otherwise default to 'Picnook'--}}
+        @yield('title', 'Picnook')
+    </title>
 
-@section('title')
-    Picnook index page
-@stop
+    <meta charset='utf-8'>
+    
+    <!-- Latest compiled and minified CSS -->
+<!--<script src="https://use.fontawesome.com/ea0bd51253.js"></script>-->
+<link href="/css/picnook.css" id="mainstyles" type='text/css' rel='stylesheet'>
 
+    {{-- Yield any page specific CSS files or anything else you might want in the head --}}
+   
 
-@section('head')
-    <link href="/css/picnook.css" type="text/css" rel='stylesheet'>
-@stop
-
-@section('content')
- <div id="welcomemessage">
- <p>Picnook is the place to go to get photos framed for your home.</p>
- </div>
-@stop
+</head>
+<body>
+   
  
 
+ 
+    <link href="/css/picnook.css" type="text/css" rel='stylesheet'>
+ 
 
-@section('body')
-    <script ></script>
+ 
+
+ 
+ 
+   <div id="welcomepage">
+ <div id="welcomepagecontainer">
+  <section>
+  	<p>welcome to Picnook.</p>
+  <p>to get started <a href="/login">login</a> or <a href="/register">register</a></p>
+  </section>
+</div>
+ 
+
+</div> 
+ 
+ 
+
+</body>
+</html>
+    
  
 

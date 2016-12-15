@@ -30,7 +30,7 @@
     </form>
     </div>
     <div id="searchable">
-
+      <h3>search by title or category</h3>
       
       <form method='POST' action='/pic/search'>
 
@@ -81,7 +81,7 @@
     
   <button id="openlist">See your wishlist?</button>  
    
-    <button id="opensearch">search for pics?</button> 
+     
     <div id="rtcontainer">
     <div id="pg1rightcontent">
   <h3>Section 1</h3>

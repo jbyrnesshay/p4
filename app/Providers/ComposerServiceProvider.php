@@ -3,6 +3,7 @@
 namespace Picnook\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Picnook\Pic;
 
 class ComposerServiceProvider extends ServiceProvider
 {
@@ -15,8 +16,9 @@ class ComposerServiceProvider extends ServiceProvider
     {
         #make user available to all views
         \View::composer('*', function($view){
-            $view->with('user', \Auth::user());
+            $view->with('user', \Auth::user())->with('allpics', Pic::All());
         });
+        //\View::composer('*', function($view))
     }
 
     /**
