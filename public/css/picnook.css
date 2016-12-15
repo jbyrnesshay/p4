@@ -13,17 +13,7 @@ div#padding:before {
 	margin: 0 0 0 0;
 	padding: 0 0 0 0;
 }
-div#frame {
-	width: 55%;
-	height: 250px;
-	border: solid black;
-	padding: 0em;
-	z-index: 5;
-	/*-width: 25px 25px 25px 25px;*/
-	position: relative;
-	display: inline-block;
 
-}
 
 div#epadding:before {
 	content: '';
@@ -35,6 +25,18 @@ div#epadding:before {
 	position: absolute;
 	margin: 0 0 0 0;
 	padding: 0 0 0 0;
+}
+
+div#frame {
+	width: 55%;
+	height: 250px;
+	border: solid black;
+	padding: 0em;
+	z-index: 5;
+	/*-width: 25px 25px 25px 25px;*/
+	position: relative;
+	display: inline-block;
+
 }
 div#eframe {
 	width: 55%;
