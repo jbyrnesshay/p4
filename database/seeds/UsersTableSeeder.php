@@ -14,8 +14,8 @@ class UsersTableSeeder extends Seeder
     {
         $users = [
         // in addition to name field, I have first_name and last_name fields
-        ['jill@harvard.edu','jill','helloworld', 'jill'], # <-- Required for P4
-        ['jamal@harvard.edu','jamal','helloworld', 'jamal'], # <-- Required for P4
+        ['jill@harvard.edu','jill','helloworld', 'jill', ''], # <-- Required for P4
+        ['jamal@harvard.edu','jamal','helloworld', 'jamal', ''], # <-- Required for P4
         ['jmb464@g.harvard.edu','joachim','helloworld', 'joachim', 'byrnes-shay']  
     ];
     	
