@@ -43,7 +43,7 @@
                 <li><a href="/logout">sign out</a></li>
                 @endif
                 <li><a href="/">home</a></li>
-                <li><a href="http://google.com/">google</a></li>
+              
             </ul>
         </nav>
     </header>

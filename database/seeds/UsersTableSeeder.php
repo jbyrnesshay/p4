@@ -27,7 +27,7 @@ class UsersTableSeeder extends Seeder
     		$user = User::create([
     			'email'=>$user[0],
     			'name'=>$user[1], # <== to satisfy P4 requirement
-                'password'=>Hash::make($user[2])
+                'password'=>Hash::make($user[2]);
     			'first_name'=>$user[3], #<-- my own preference
                 'last_name'=>$user[4] #<--preference
     			

@@ -26,9 +26,9 @@
     </fieldset>
     <fieldset>
     <label for="framethick">select frame thickness</label>
-    <input type ="range" id="framethick" name= 'framethick' min='.25' max='2' step='.25' value='.25'>
+    <input type ="range" id="framethick" name= 'framethick' min='0.25' max='2' step='0.25' value='0.25'>
     <label for="matwidth">select mat width</label>
-    <input type="range" id="matthick" name='matthick' min='.25' max ='2' step='.25' value='.25'>
+    <input type="range" id="matthick" name='matthick' min='0.25' max ='2' step='0.25' value='0.25'>
     </fieldset>
     <fieldset>
     <input type="hidden" name='key' value={{$key}}>

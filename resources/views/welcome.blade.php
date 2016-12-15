@@ -1,31 +1,21 @@
- 
- 
+@extends('layouts.master')
 
- <!DOCTYPE html>
-<html>
-<head>
-    <title>
-        {{-- Yield the title if it exist, otherwise default to 'Picnook'--}}
-        @yield('title', 'Picnook')
-    </title>
+@section('title')
+    Picnook index page
+@stop
 
-    <meta charset='utf-8'>
-    
-    <!-- Latest compiled and minified CSS -->
-<!--<script src="https://use.fontawesome.com/ea0bd51253.js"></script>-->
-<link href="/css/picnook.css" id="mainstyles" type='text/css' rel='stylesheet'>
 
-    {{-- Yield any page specific CSS files or anything else you might want in the head --}}
-   
-
-</head>
-<body>
-   
- 
-
- 
+@section('head')
     <link href="/css/picnook.css" type="text/css" rel='stylesheet'>
+    <link href="/css/searcn.css" type="text/css" rel='stylesheet'>
+@stop
+
+@section('content')
  
+   
+ 
+
+  
 
  
 
@@ -42,10 +32,10 @@
 
 </div> 
  
- 
+ @stop
 
-</body>
-</html>
-    
+ @section('body')
+
+ @stop
  
 

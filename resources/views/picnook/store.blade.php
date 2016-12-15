@@ -43,9 +43,9 @@
     </fieldset>
     <fieldset>
     <label for="framethick">select frame thickness</label>
-    <input type ="range" id="framethick" min='0' max='2' step='.25' value='.25'>
+    <input type ="range" id="framethick" min='0' max='3' step='0.25' value='0.25'>
     <label for="matwidth">select mat width</label>
-    <input type="range" id="matwidth" min='0' max ='2' step='.25' value='.25'>
+    <input type="range" id="matwidth" min='0' max ='3' step='0.25' value='0.25'>
     </fieldset>
     <fieldset>
     <label for = 'addwishlist'>add to wishlist?</label>
@@ -61,7 +61,8 @@
 @stop
  
 
-
-@section('body')
-     
+0
+@section('body'0)
+  0   
  
+0

@@ -22,17 +22,17 @@
     <section id="displayselection">
    <div id="frame">
    <div id="padding">
-   <img id="currentbrowse" class="browse" src={{$pic->link}}>
+   <img id="currentbrowse" class="browse" alt="{{$pic->title}}" src={{$pic->link}}>
    </div>
    </div>
    
     
-    @include('picnook.test') 
+@include('picnook.createform') 
 
     <div id="browse">
     
-    <button id="keepbrowse"><a href="/home">keep browsing?</a></button>
-    </a>
+    <a id="keepbrowse" href="/home">keep browsing?</a>
+    
     </div>
     </div> 
 

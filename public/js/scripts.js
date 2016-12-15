@@ -26,12 +26,12 @@ $(document).ready(function() {
 	function flashMessages() {
 		if ($('#flash_message').html()) {
 			 $('#flash_message').fadeOut(3000, function(){
-			 	$('#headimage').html(headsource);
+			 	//$('#ctrhead').html(headsource);
 			});
 		}
 	}
 	
-	//some simple home page options
+	//some sim.ple home page options
  	function homepageFuncs() {
 		//if wishlist options button is clicked it 
 		//toggles button panel, consisting of details, edit, delete
@@ -83,7 +83,7 @@ $(document).ready(function() {
 			matcolor = $(this).val();
 			/*reminder use .cssText; to see contents */
 			//set default matwidth
-			bwidth = '.25em';
+			bwidth = '0.3em';
 			
 			if (matcolor == 'none') {
 				/*this is accessing css rules, to achieve styling functionality
@@ -93,7 +93,7 @@ $(document).ready(function() {
 				mainstylesheet.cssRules[0].style.borderColor='white';
 			}
 			else {
-				if ($('#matthick').val()>.25) {
+				if ($('#matthick').val()>0.3) {
 				bwidth= $('#matthick').val() + 'em';
 				}
 				mainstylesheet.cssRules[0].style.borderWidth=bwidth;

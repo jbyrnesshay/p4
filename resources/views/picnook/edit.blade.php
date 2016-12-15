@@ -64,9 +64,9 @@
     </fieldset>
     <fieldset>
     <label for="eframethick">select frame thickness</label>
-    <input type ="range" id="eframethick" name= 'eframethick' min='.25' max='2' step='.25' value={{$pic_config->frame_thickness}}>
+    <input type ="range" id="eframethick" name= 'eframethick' min='0.25' max=3 step='0.25' value={{$pic_config->frame_thickness}}>
     <label for="ematwidth">select mat width</label>
-    <input type="range" id="ematthick" name='ematthick' min='.25' max ='2' step='.25' value={{$pic_config->mat_thickness}}>
+    <input type="range" id="ematthick" name='ematthick' min='0.2' max =3 step='0.25' value={{$pic_config->mat_thickness}}>
     </fieldset>
     <fieldset>
     {{--<input type="hidden" name='key' value=""}>--}}
