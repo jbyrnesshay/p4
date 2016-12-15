@@ -1,7 +1,7 @@
 
-/*the first 2 rulesets are placed on top due to particular scripting needs*/ 
-/*padding overlayed on image, without shrinking image to fit*/
-/*:before is dynamically style-changed with javascript, not possible with jquery*/
+/*  the first 2 rulesets are placed on top due to particular scripting needs*/ 
+/*  padding overlayed on image, without shrinking image to fit*/
+/*  :before is dynamically style-changed with javascript, not possible with jquery*/
 div#padding:before {
 	content: '';
 	border: solid 0em;
@@ -13,8 +13,6 @@ div#padding:before {
 	margin: 0 0 0 0;
 	padding: 0 0 0 0;
 }
-
-
 div#epadding:before {
 	content: '';
 	border: solid 0em;
@@ -26,17 +24,14 @@ div#epadding:before {
 	margin: 0 0 0 0;
 	padding: 0 0 0 0;
 }
-
 div#frame {
 	width: 55%;
 	height: 250px;
 	border: solid black;
 	padding: 0em;
 	z-index: 5;
-	/*-width: 25px 25px 25px 25px;*/
 	position: relative;
 	display: inline-block;
-
 }
 div#eframe {
 	width: 55%;
@@ -44,15 +39,12 @@ div#eframe {
 	border: solid black;
 	padding: 0em;
 	z-index: 5;
-	/*-width: 25px 25px 25px 25px;*/
 	position: relative;
 	display: inline-block;
-
 }
 img#currentbrowse {
 	width: 100%;
 	height: 100%;
-	
 	left: 0;
 	top: 0;
 	display:  inline-block;
@@ -64,18 +56,12 @@ img#currentbrowse {
 .wishcontainer {
 	width: 30%;
 	height: 20%;
- 
-	float: left;
+ 	float: left;
 	margin-bottom: 3em;
-	 
-
- 
- 	 
 }
 #options {
 	float:left;
 }
-
 #wish {
 	height: 50em;
 	background: grey;
@@ -87,18 +73,13 @@ img#currentbrowse {
 /*overall wishlist section */
 div#wishlistcontainer {
 	float: right;
-	 
 	height: 100%;
 	background: grey;
-	 
- 	width: 100%;
+	width: 100%;
 	display: block;
-	 
-	
 	padding: .5em;
 	margin-top: 3em;
 	padding-bottom: 4em;
-
 }
 /*picnook list */
 #wishlistcontainer #listheading {
@@ -115,14 +96,9 @@ img.wishitem {
 	width: 100%;
 	height: 100%;
 	margin: 0 auto;
- 
-	 left: 0;
-	 top: 0;
- 
-	
-	
-	 
-	z-index: -1;
+	left: 0;
+	top: 0;
+ 	z-index: -1;
 	position: absolute;
 }
 div.frame {
@@ -130,9 +106,7 @@ div.frame {
 	height: 95%;
 	padding: .1em;
 	position: relative;
-	 
 	z-index: 5;
-  
 }
 div.padding:before {
 	content: '';
@@ -145,21 +119,16 @@ div.padding:before {
 	margin: 0 0 0 0;
 	padding: 0 0 0 0;
 }
-/*div.frame img {
-	width: 50px
-	height: 80px;
-}*/
+
 /****************************/
 /*begin general css */
 
 html {
   box-sizing: border-box;
-
 }
 *, *:before, *:after {
   box-sizing: inherit;
 }
-
 body {
 	position: absolute;
 	font-family: "Century Gothic", sans-serif;
@@ -172,18 +141,12 @@ body {
 }
 header#top {
 	width: 100%;
-	
 	background: #F8F8F8;
 	border: 1px solid black;
 	height: 4em;
-	 
 	position: fixed;
 	z-index: 10;
-	 
-
-	 
 }
- 
 header img {
 	border: .5em solid #4B3621;
 	width: 200px;
@@ -193,9 +156,7 @@ header img {
 	margin-top: 0em;
 	margin-left: 7em;
 }
-
 header h1 {
-
 	margin-top: 0em;
 	margin-left: .5em;
 	margin-right: 2em;
@@ -204,9 +165,9 @@ header h1 {
 	left: 0em;
 	top: -.17em;
 	padding: .15em .3em .15em .3em;
-position: relative;
+	position: relative;
 	font-family: "Century Gothic";
-	color: block;
+	color: black;
 	font-weight: bolder;
 	height: 3em;
 	display: inline-block;
@@ -225,7 +186,6 @@ div#transp {
 	border: 3px solid black;
 	border-radius: 10px;
 	z-index: 0;
-	
 }
 div#transp::after {
   content: "";
@@ -235,18 +195,14 @@ div#transp::after {
   left:0;
   bottom: 0;
   right: 0;
-
   position: absolute;
   z-index: -1;   
 }
 /* end transparent background for brand image */
-
 #ctrhead{
 	margin-top: .25em;
 	margin-bottom: .25em;
-	/*position: relative;*/
 	height: 2em;
-	/*left: 10em;*/
 	font-size: 1em;
 	float:left;
 	display:inline-block;
@@ -257,28 +213,20 @@ div#transp::after {
 	margin-left: 5em;
 	top: 0;
 	margin-top: 0;
-	
-}
-nav {
-	 
 }
 nav ul {
-	 
 	margin-right: 3em;
 	position: fixed;
 	right: 0;
 	margin-top: 0;
-	 
 }
 nav ul li a {
-	/*border: 1px solid black;*/
 	text-decoration: none;
 }
 /* end nav items */
 
 footer {
 	bottom: 0;
-	
 	position: fixed;
 	width: 100%;
 	margin: 3em auto 0 auto;
@@ -287,19 +235,12 @@ footer {
 	z-index: 10;
 	border-top: 2px solid black;
 	text-align:center;
-
 }
-
 
 /*******************************************/
 /*index page image selection */
 div.img {
-	border: 1px solid black;/*cafe noir shade of brown */
-	/*#321414 seal brown
-	#4F3A3C dark puce
-	#645452 wenge
-	#4B3621 cafe noir brown*/
-	/*border-width: 15px 15px 15px 15px;*/
+	border: 1px solid black;
 	display: inline-block;
 	margin: .5em;
 	height: 7em;
@@ -311,29 +252,13 @@ img.browse, input[type="image"] {
 	width: 150px;
 	height: 180px;
 	border: solid ghostwhite;
-	/*border-image: url(images/wood/wood-785605_640.jpg) 25% repeat;*/
-	
-	/*border-width: 15px 15px 15px 15px;*/
-/*-webkit-border-image:url(/images/wood/wood.png) 15 20 30 30 repeat;
--moz-border-image:url('/images/wood/wood.png') 15 20 30 30 repeat;
-border-image:url(/images/wood/brush_alum.jpg) 15 20 30 30 repeat;*/
 } 
 img.index {
 	width: 100%;
 	height: 100%;
 	border: none;
 	position: relative;
-	 
-	 
-
-
 }
-
-
- 
-
-
-
 nav ul li {
 	border: 1px solid blue;
 	border-radius: 5px;
@@ -342,7 +267,6 @@ nav ul li {
 	padding: .3em;
 	width: 6em;
 	text-align: center;
-
 }
 li#greeting {
 	border: 3px solid purple;
@@ -354,14 +278,11 @@ li#greeting {
 	font-size: 1em;
 	letter-spacing: 0.15em;
 	text-align: center;
- 
-	display: inline-block;
+ 	display: inline-block;
 	height: 2em;
 	margin-top: 1em;	
 	width: 10em;
 	color: purple;
- 
-
 }
 div#selectionoptions {
 	text-transform: uppercase;
@@ -376,7 +297,7 @@ div#selectionoptions {
 	position: absolute;
 }
 #selectionoptions label {
-	 display:inline-block;
+	display:inline-block;
 	margin: .5em;
 }
 #selectionoptions select {
@@ -389,8 +310,6 @@ input[type="submit"] {
 	margin-bottom: .75em;
 	margin-left: .5em;
 }
-
- 
 #flash_message {
 	background: orange;
 	text-transform: uppercase;
@@ -409,7 +328,6 @@ input[type="submit"] {
 	margin-left: 0;
 	display: inline-block;
 	width: 45%;
-
 }
 #purchase fieldset label {
 	margin-left: 2em;
@@ -438,10 +356,8 @@ section #information {
 	position: relative;
 	padding-right: 0;
 	border-left: 0;
-
 }
 div#mainpagecontainer {
-
 	clear: left;
 	position: relative;
 	width: 100%;
@@ -452,16 +368,11 @@ div#mainpagecontainer {
 	display: block;
 	margin: 0 auto;
 }
-/*century gothic not right for nav links */
 nav ul li a {
 	font-family: Arial, sans-serif;
-	/*font-family: "Century Gothic", sans-serif;*/
 	color: red;
-	 
-	 
 }
 div#welcomemessage {
-	 
 	margin-top: 5em;
 	margin-left: 4em;
 	background: pink;
@@ -469,15 +380,14 @@ div#welcomemessage {
 	border-radius: 10px;
 	position: absolute;
 	height: 5em;
-
 }
 #keepbrowse {
-	 position: relative;
-	 margin-top: 1.1em;
-	 margin-left: .8em;
-	 padding: .5em .5em .5em .5em;
+	position: relative;
+	margin-top: 1.1em;
+	margin-left: .8em;
+	padding: .5em .5em .5em .5em;
 	width: 75%;
-	  font-size: .9em;
+	font-size: .9em;
 }
 #keepbrowse a {
 	text-decoration: none;
@@ -488,10 +398,8 @@ div#browse {
 	width: 100%;
 	border: 1px solid black;
 	position: relative;
-	/*float:right;*/
 	position:absolute;
 	height: 5.2em;
-	 
 	background: antiquewhite;
 	margin: 0 auto;
 }
@@ -502,46 +410,38 @@ div#browse {
 	margin-bottom: 0;
 	display:block;
 	font-size: .85em;
-	 
-}
+	}
 }
 @media all and (max-width: 840px) {
- 
-	section #displayselection {
+ 	section #displayselection {
 		height:65% ;
 	}
 	#purchase fieldset label {
-	margin-left: .25em;
-	display:block;
-}
+		margin-left: .25em;
+		display:block;
+	}
 }
 @media all and (max-width: 720px) {
- 
-	section #displayselection {
+ 	section #displayselection {
 		height:75% ;
-
 	}
-
 }
 @media all and (max-width: 400px) {
- 
-	section #displayselection {
+ 	section #displayselection {
 		height:85% ;
 	}
 }
 #searchtest {
 	margin-top: 7em;
 }
-
 .edit, .details, .delete {
 	visibility: hidden;
 	text-transform:uppercase;
-	padding: .15;
+	padding: .1em;
 	font-size: .9em;
 	border: 1px solid black;
 	border-radius: 5px;
 }
-
 .visiblebutton {
 	visibility:visible;
 }
@@ -560,14 +460,12 @@ div#browse {
 a:visited {
 	color:black;
 }
-
 .edit, #keepbrowse {
 	background-color: #e7e7e7;
 	text-decoration: none;
 	color: black;
 	padding: .1em .25em .1em .25em;
 	}
-
 #keepbrowse {
 	border: 1px solid black;
 	background-color: white;
@@ -580,21 +478,16 @@ a:visited {
 	border-radius: 10px;
 }	
 .details {
-	
-float:left;
-display:inline-block;
-margin-bottom: 1.75em;
+	float:left;
+	display:inline-block;
+	margin-bottom: 1.75em;
 }
 div#frame {
-margin-bottom:0;
-
+	margin-bottom:0;
 }
 #selectionoptions fieldset input[type="range"]{
 	width: 80%;
 }
- 
-/*#pg1wishlistcontainer {*/
-
 #mainpagecontainer #wish {
 	width: 90%;
 	display:none;
@@ -612,19 +505,13 @@ margin-bottom:0;
 #mainpagecontainer .wishcontainer {
 	width: 25%;
 	height: 25%;
- 
 	float: left;
 	margin-bottom: 3em;
-	 
-
- 
- 	 
 }
 #mainpagecontainer button {
 	font-size: .8em;
 }
 #categoriesdiv {
-	 
 	width: 10em;
 	top: .1em;
 	left: 26em;
@@ -635,7 +522,6 @@ margin-bottom:0;
 	float:left;
 	padding: .5em;
 }
-
 #searchable {
 	width: 7em;
 	top: 1.3em;
@@ -646,7 +532,6 @@ margin-bottom:0;
 	display:inline-block;
 	width: 20em;
 }
-
 .searchresult {
 	width: 275px;
 	float: left;
@@ -673,9 +558,7 @@ margin-bottom:0;
 	margin-top:.5em;
 	margin-left: .8em;	
 	position:relative;
-
 }
- 
 .searchresult span {
 	color: blue;
 	font-family: "arial narrow";
@@ -686,16 +569,10 @@ margin-bottom:0;
 #welcomepagecontainer section {
 	margin: 0 auto;
 	font-size: 3em;
- 
-	width: 80%;
+ 	width: 80%;
 	text-align:center;
 	border: 1px solid red;
 	margin-top: 4em;
-}
-div#welcomepage {
-/*display:none;*/
- 
- 
 }
 #searchable h3 {
 	font-size: .85em;

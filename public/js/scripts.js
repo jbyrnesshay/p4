@@ -1,3 +1,4 @@
+/* all scripts.js programming by Joachim Byrnes-Shay*/
 
 $(document).ready(function() {
 
@@ -31,7 +32,7 @@ $(document).ready(function() {
 		}
 	}
 	
-	//some sim.ple home page options
+	//some simple home page options
  	function homepageFuncs() {
 		//if wishlist options button is clicked it 
 		//toggles button panel, consisting of details, edit, delete
@@ -60,12 +61,8 @@ $(document).ready(function() {
 	function deleteConfirmation() {
 		//primitive delete confirmation window in javascript
 		$('.delete').click(function(e){
-	 	var x;
-	    if (confirm("REALLY DELETE??") == true) {
-	       x= 2;
-	    } else {
-	       x=0;
-	       e.preventDefault();
+	    if (!confirm("REALLY DELETE??") == true) {
+	    	e.preventDefault();
 	    }});
 	}//end deleteConfirmation
  	
@@ -176,7 +173,6 @@ $(document).ready(function() {
 			}
 		);}//end edit page listener
 	}
-
 });
 
  

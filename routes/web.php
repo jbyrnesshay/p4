@@ -19,8 +19,6 @@ Route::get('/search', 'PageController@search')->name('search');
 Route::post('/pic/search', 'PicController@postSearch')->name('postSearch');
 
 
-//Route::get('/', 'BookController@index')->name('books.index');
-
 # Display form to add a new book
 
 Route::get('/', 'PageController@welcome'

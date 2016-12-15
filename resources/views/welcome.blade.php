@@ -12,30 +12,18 @@
 
 @section('content')
  
-   
- 
+	<div id="welcomepage">
+ 		<div id="welcomepagecontainer">
+  			<section>
+  				<p>welcome to Picnook.</p>
+  				<p>to get started <a href="/login">login</a> or <a href="/register">register</a></p>
+  			</section>
+		</div>
+	</div> 
+@stop
 
-  
+@section('body')
 
- 
-
- 
- 
-   <div id="welcomepage">
- <div id="welcomepagecontainer">
-  <section>
-  	<p>welcome to Picnook.</p>
-  <p>to get started <a href="/login">login</a> or <a href="/register">register</a></p>
-  </section>
-</div>
- 
-
-</div> 
- 
- @stop
-
- @section('body')
-
- @stop
+@stop
  
 
