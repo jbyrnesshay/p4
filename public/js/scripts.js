@@ -77,7 +77,7 @@ $(document).ready(function() {
   	//alert('ah');
    
   	$('#pg1rightcontent').toggle();
-  	$('#pg1wishlistcontainer').toggle();
+  	$('#wishlistcontainer').toggle();
   	});
  
 

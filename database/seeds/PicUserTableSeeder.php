@@ -32,7 +32,7 @@ class PicUserTableSeeder extends Seeder
     	$user->pics()->save($addtoList);	
        $matchThese = ['pic_id' => $addtoList->id, 'user_id' => $user->id];
        
-                   DB::table('pic_user')->where($matchThese)->update(['frame_color' => 'silver', 'mat_color'=>'white', 'frame_thickness'=>'.5', 'mat_thickness'=>'.5']);
+                   DB::table('pic_user')->where($matchThese)->update(['frame_color' => 'silver', 'mat_color'=>'white', 'frame_thickness'=>'.5', 'mat_thickness'=>'.5', '$cost'=>'155.00']);
 
       /* $addtoList->pivot->mat_color = 'white';
         $addtoList->pivot->frame_color = 'silver';

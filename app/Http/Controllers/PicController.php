@@ -37,21 +37,21 @@ class PicController extends Controller
             {echo(string)$file->getfileName(),"\n";}*/
         if (isset($category)){
              
-         $pics = Pic::where('category', $category)->get();
+         $catalog_pics = Pic::where('category', $category)->get();
         // dd($category);
      }
      else {
         $category='Click Pic to Customize';
-        $pics = Pic::All();
+        $catalog_pics = Pic::All();
 }
             if (Auth::user()) {
             $user = Auth::user();
-            $list = $user->pics()->get();
+            $pics = $user->pics()->get();
             
              
 
 
-        $data = array('name'=>$user->first_name, 'pics'=>$pics, 'list'=>$list, 'category'=>$category);
+        $data = array('name'=>$user->first_name, 'catalog_pics'=>$catalog_pics, 'pics'=>$pics, 'category'=>$category);
     }
 
     else {
@@ -79,7 +79,7 @@ class PicController extends Controller
             $name = Auth::user()->first_name;
         
         $user=Auth::user();
-        $list = $user->pics()->get();
+        $pics = $user->pics()->get();
         }
         else {
             $name = '';
@@ -96,7 +96,7 @@ class PicController extends Controller
 
 
 
-        return View::make('picnook.create')->with('pic', $pic)->with('name', $name)->with('list', $list)->with('key', $key);
+        return View::make('picnook.create')->with('pic', $pic)->with('name', $name)->with('pics', $pics)->with('key', $key);
     }
 
     /**
@@ -147,6 +147,7 @@ class PicController extends Controller
                     $mat_color = '';
                  }
                  else $mat_color = $request->input('matselect');
+                 $cost = $request->input('cost');
                  $mat_thickness = $request->input('matthick');
                  /* $a = $request->input('frameselect');
                  $b = $request->input('framethick');
@@ -161,7 +162,7 @@ class PicController extends Controller
                     //dd($toAdd);
                     //dd($frame_color);
                     $matchThese = ['pic_id' => $toAdd, 'user_id' => $userid];
-                   DB::table('pic_user')->where($matchThese)->update(['frame_color' => $frame_color, 'mat_color'=>$mat_color, 'frame_thickness'=>$frame_thickness, 'mat_thickness'=>$mat_thickness]);
+                   DB::table('pic_user')->where($matchThese)->update(['frame_color' => $frame_color, 'mat_color'=>$mat_color, 'frame_thickness'=>$frame_thickness, 'mat_thickness'=>$mat_thickness, '$cost'=>$cost]);
                    //DB::table('pic_user')->save();
                    //DB::table('users')
             //->where('id', 1)

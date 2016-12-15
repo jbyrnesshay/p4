@@ -535,8 +535,8 @@ margin-bottom:0;
 	width: 80%;
 }
  
-#pg1wishlistcontainer {
-	
+/*#pg1wishlistcontainer {*/
+#mainpagecontainer #wishlistcontainer {	 
 	display:none;
 	width: 90%;
 	margin: 0 auto;
@@ -634,4 +634,8 @@ div#welcomepage {
 	top:-1.3em;
 	text-transform:uppercase;
 	width: 20em;
+}
+
+#savechanges {
+	font-weight: bolder;
 }
