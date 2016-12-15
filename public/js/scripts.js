@@ -101,7 +101,8 @@ $('.delete').click(function(e){
     }});
  	
  
- $(editstartState());
+ editstartState();
+ 	editpageListener();
  function editstartState() {
  	 
  	//$('#eframe').css('borderColor', eframecolor);
@@ -128,7 +129,61 @@ $('.delete').click(function(e){
 		else {
 		//mainstylesheet.cssRules[2].style.borderWidth=ematwidth+'em';
 		mainstylesheet.cssRules[2].style.borderColor=ematcolor;*/
+
+	
  }
+
+ function editpageListener() {
+ 	$('#eframeselect').change(function(){
+		color = $(this).val();
+		$('#eframe').css('borderColor',color );
+	});
+	//
+	//if matselect change
+	$('#ematselect').change(function(){
+		matcolor = $(this).val();
+		/*reminder use .cssText; to see contents */
+			testThickness = $('#ematthick').val();
+	 		if (matcolor == 'none'){
+			//mainstylesheet.cssRules[2].style.borderWidth=bwidth;
+			mainstylesheet.cssRules[2].style.borderWidth=0+'em';
+			$('#ematthick').
+			mainstylesheet.cssRules[2].style.borderColor='white';
+
+		}
+		else {
+
+			mainstylesheet.cssRules[2].style.borderColor=matcolor;
+			mainstylesheet.cssRules[2].style.borderWidth=testThickness + 'em';
+		}
+		
+	});
+	//
+	//if framethickness slider changed
+	$('#eframethick').on("input",function(){
+		fwidth = $('#eframethick').val();
+		mainstylesheet.cssRules[3].style.borderWidth=fwidth+'em';
+	});
+	//"ematthick"
+	//if matthickness slider changed
+	$('#ematthick').on("input", function(){
+		mwidth= $(this).val();
+		matcolor= $('#ematselect').val();
+		 
+		 
+		mainstylesheet.cssRules[2].style.borderWidth=mwidth+'em';
+	}
+		//mainstylesheet.cssRules[2].style.borderColor=matcolor;
+	
+		
+	
+	);
+}
+	//
+ 
+
+
+ 
 
 /*$('#frameselect').change(function(){
 		color = $(this).val();
