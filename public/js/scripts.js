@@ -1,7 +1,7 @@
 
 $(document).ready(function() {
 
-	headsource = '<img id="ctrheadimage" src="/images/frames_pexels_107911.jpg">';
+	headsource = 'YOUR PLACE FOR WALL ART';
 
 	//mainstylesheet is variable employed for stylling :before pseudoelement
 	//not able to use Jquery for that, app necessitates dynamic styling for it
@@ -45,7 +45,7 @@ $(document).ready(function() {
 	   	//toggles wishlist vs right column text content
 		$('#openlist').click(function(){
 	   		$('#pg1rightcontent').toggle();
-	  		$('#wishlistcontainer').toggle();
+	  		$('#wishlistcontainer, #wish').toggle();
 	  	});
 	 
 		//if home page category is selected, choice is submitted to 

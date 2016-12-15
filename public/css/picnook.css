@@ -62,8 +62,8 @@ img#currentbrowse {
 }
 /*for individual items in wishlist display */
 .wishcontainer {
-	width: 20%;
-	height: 20%;
+	width: 25%;
+	height: 25%;
  
 	float: left;
 	margin-bottom: 3em;
@@ -80,24 +80,25 @@ img#currentbrowse {
 	height: 50em;
 	background: grey;
 	right:  0;
-	width: 35%;
-	 
+	width: 40%;
+	margin-right:2em;
 	position: absolute;
 }
 /*overall wishlist section */
 div#wishlistcontainer {
 	float: right;
 	 
-	height: 25em;
+	height: 100%;
 	background: grey;
 	 
- 
+ 	width: 100%;
 	display: block;
-	position: absolute;
+	 
 	
 	padding: .5em;
 	margin-top: 3em;
 	padding-bottom: 4em;
+
 }
 /*picnook list */
 #wishlistcontainer #listheading {
@@ -246,6 +247,7 @@ div#transp::after {
 	/*position: relative;*/
 	height: 3.4em;
 	/*left: 10em;*/
+	font-size: 1em;
 	float:left;
 	display:inline-block;
 }
@@ -431,6 +433,7 @@ section #information {
 
 }
 div#mainpagecontainer {
+
 	clear: left;
 	position: relative;
 	width: 100%;
@@ -526,7 +529,7 @@ div#browse {
 	visibility: hidden;
 	text-transform:uppercase;
 	padding: .15;
-	font-size: .5em;
+	font-size: .9em;
 	border: 1px solid black;
 	border-radius: 5px;
 }
@@ -560,6 +563,7 @@ margin-bottom:0;
 
 #mainpagecontainer #wish {
 	width: 90%;
+	display:none;
 }
 #mainpagecontainer #wishlistcontainer {	 
 	display:none;
@@ -571,7 +575,9 @@ margin-bottom:0;
 	padding-bottom: 4em;
 	left: 1.5em; 
 }
- 
+#mainpagecontainer button {
+	font-size: .8em;
+}
 #categoriesdiv {
 	 
 	width: 10em;
