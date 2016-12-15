@@ -24,101 +24,6 @@ div#epadding:before {
 	margin: 0 0 0 0;
 	padding: 0 0 0 0;
 }
-div#frame {
-	width: 55%;
-	height: 250px;
-	border: solid black;
-	padding: 0em;
-	z-index: 5;
-	position: relative;
-	display: inline-block;
-}
-div#eframe {
-	width: 55%;
-	height: 250px;
-	border: solid black;
-	padding: 0em;
-	z-index: 5;
-	position: relative;
-	display: inline-block;
-}
-img#currentbrowse {
-	width: 100%;
-	height: 100%;
-	left: 0;
-	top: 0;
-	display:  inline-block;
-	z-index: -1;
-	position: absolute;
-	border: none;
-}
-/*for individual items in wishlist display */
-.wishcontainer {
-	width: 30%;
-	height: 20%;
- 	float: left;
-	margin-bottom: 3em;
-}
-#options {
-	float:left;
-}
-#wish {
-	height: 50em;
-	background: grey;
-	right:  0;
-	width: 40%;
-	margin-right:2em;
-	position: absolute;
-}
-/*overall wishlist section */
-div#wishlistcontainer {
-	float: right;
-	height: 100%;
-	background: grey;
-	width: 100%;
-	display: block;
-	padding: .5em;
-	margin-top: 3em;
-	padding-bottom: 4em;
-}
-/*picnook list */
-#wishlistcontainer #listheading {
-	background: antiquewhite;
-	width: 100%;
-	text-transform: uppercase;
-	margin-top: 0;
-	padding: .5em;
-	text-align: center;
-	margin-bottom: 0;
-	font-size: 1.3em;
-}
-img.wishitem {
-	width: 100%;
-	height: 100%;
-	margin: 0 auto;
-	left: 0;
-	top: 0;
- 	z-index: -1;
-	position: absolute;
-}
-div.frame {
-	width: 85%;
-	height: 95%;
-	padding: .1em;
-	position: relative;
-	z-index: 5;
-}
-div.padding:before {
-	content: '';
-	border: white solid .4em;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	position: absolute;
-	margin: 0 0 0 0;
-	padding: 0 0 0 0;
-}
 
 /****************************/
 /*begin general css */
@@ -200,12 +105,17 @@ div#transp::after {
 }
 /* end transparent background for brand image */
 #ctrhead{
-	margin-top: .25em;
+	margin-top: 1.25em;
 	margin-bottom: .25em;
 	height: 2em;
 	font-size: 1em;
 	float:left;
 	display:inline-block;
+	text-transform:uppercase;
+}
+#headimage {
+	left: 9em;
+	bakcground:blue;
 }
 /* nav items */
  header nav ul li {
@@ -403,33 +313,100 @@ div#browse {
 	background: antiquewhite;
 	margin: 0 auto;
 }
-@media all and (max-width: 900px) {
-	#purchase fieldset label {
-	margin-left: .25em;
+div#frame {
+	width: 55%;
+	height: 250px;
+	border: solid black;
+	padding: 0em;
+	z-index: 5;
+	position: relative;
+	display: inline-block;
+}
+div#eframe {
+	width: 55%;
+	height: 250px;
+	border: solid black;
+	padding: 0em;
+	z-index: 5;
+	position: relative;
+	display: inline-block;
+}
+img#currentbrowse {
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	display:  inline-block;
+	z-index: -1;
+	position: absolute;
+	border: none;
+}
+/*for individual items in wishlist display */
+.wishcontainer {
+	width: 30%;
+	height: 20%;
+ 	float: left;
+	margin-bottom: 3em;
+}
+#options {
+	float:left;
+}
+#wish {
+	height: 50em;
+	background: grey;
+	right:  0;
+	width: 40%;
+	margin-right:2em;
+	position: absolute;
+}
+/*overall wishlist section */
+div#wishlistcontainer {
+	float: right;
+	height: 100%;
+	background: grey;
+	width: 100%;
+	display: block;
+	padding: .5em;
+	margin-top: 3em;
+	padding-bottom: 4em;
+}
+/*picnook list */
+#wishlistcontainer #listheading {
+	background: antiquewhite;
+	width: 100%;
+	text-transform: uppercase;
 	margin-top: 0;
+	padding: .5em;
+	text-align: center;
 	margin-bottom: 0;
-	display:block;
-	font-size: .85em;
-	}
+	font-size: 1.3em;
 }
-@media all and (max-width: 840px) {
- 	section #displayselection {
-		height:65% ;
-	}
-	#purchase fieldset label {
-		margin-left: .25em;
-		display:block;
-	}
+img.wishitem {
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	left: 0;
+	top: 0;
+ 	z-index: -1;
+	position: absolute;
 }
-@media all and (max-width: 720px) {
- 	section #displayselection {
-		height:75% ;
-	}
+div.frame {
+	width: 85%;
+	height: 95%;
+	padding: .1em;
+	position: relative;
+	z-index: 5;
 }
-@media all and (max-width: 400px) {
- 	section #displayselection {
-		height:85% ;
-	}
+div.padding:before {
+	content: '';
+	border: white solid .4em;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
 }
 #searchtest {
 	margin-top: 7em;
@@ -587,4 +564,32 @@ div#frame {
 
 #savechanges {
 	font-weight: bolder;
+}
+@media all and (max-width: 900px) {
+	#purchase fieldset label {
+	margin-left: .25em;
+	margin-top: 0;
+	margin-bottom: 0;
+	display:block;
+	font-size: .85em;
+	}
+}
+@media all and (max-width: 840px) {
+ 	section #displayselection {
+		height:65% ;
+	}
+	#purchase fieldset label {
+		margin-left: .25em;
+		display:block;
+	}
+}
+@media all and (max-width: 720px) {
+ 	section #displayselection {
+		height:75% ;
+	}
+}
+@media all and (max-width: 400px) {
+ 	section #displayselection {
+		height:85% ;
+	}
 }

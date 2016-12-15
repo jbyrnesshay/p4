@@ -22,47 +22,36 @@ class PicController extends Controller
     
     public function index(Request $request)
     {   
-        //dd($request->input($category));
-        
-        $test = $request->input('category');
-        if (isset($test)){
-           $category = $test;
-        }
-
-        
-       /* $directory = public_path();
-
-        $files = \File::allFiles($directory);
-        foreach($files as $file)
-            {echo(string)$file->getfileName(),"\n";}*/
+           
+        $category = $request->input('category');
         if (isset($category)){
-             
-         $catalog_pics = Pic::where('category', $category)->get();
-        // dd($category);
-     }
-     else {
-        $category='Click Pic to Customize';
-        $catalog_pics = Pic::All();
-}
-            if (Auth::user()) {
+            /*
+                if the user has manually selected a category
+                get those specific pics for display
+            */
+            $catalog_pics = Pic::where('category', $category)->get();
+        }
+        else {
+            $category='Click Pic to Customize';
+            /*without user select, default is all the pics */
+            $catalog_pics = Pic::All();
+        }
+        if (Auth::user()) {
             $user = Auth::user();
+            /* $user->pics() is the specific user's own wishlist of pics
+               get these to display in wishlist window (button on main page,
+               parg of the default view on create and edit pages)
+            */
             $pics = $user->pics()->get();
-            
-             
-
-
-        $data = array('name'=>$user->first_name, 'catalog_pics'=>$catalog_pics, 'pics'=>$pics, 'category'=>$category);
-    }
-
-    else {
-        $data = ['pics'=>$pics];
-    }
-         
-         //dd($user->first_name);
-         //dd($pics);
+            /* $data will be passed on to the vieww*/
+            $data = array('name'=>$user->first_name, 'catalog_pics'=>$catalog_pics, 'pics'=>$pics, 'category'=>$category);
+        }
+        else {
+            //$data = ['pics'=>$pics];
+            //post-class enhancements of this app will present pics and limited browsing to non-logged-in guests //
+            $data = array('category'=>$category, 'catalog_pics'=>$catalog_pics);
+        }
         return View::make('picnook.index')->with($data);
-
-       // (['pics'=>$pics], ['user'=> $user]);
     }
 
     /**
@@ -72,31 +61,29 @@ class PicController extends Controller
      */
     public function create($key)
     {
+        //my create view is a combination of show and create, which seemed
+        //to work best for flow of the app.  when user clicks on image on index page, is sent to a larger display of the specific image, with a form
+        //having config options for frame and mat color, frame and mat length
+        //in the context of the app, to create is to select a stock image and
+        //add frame, mat, width for each, color for each
 
-      
+        //$pic is the specific pic to configure
         $pic= Pic::where('id', '=', $key)->first();
+        
+        //I have both first_name field and name (to satisfy assignment seeding requirements) fields.  I am treating those 2 fields equivalently.  new users register with first name and last name, not name
         if (Auth::user()) {
             $name = Auth::user()->first_name;
-        
+
         $user=Auth::user();
+        //$user's pics go to the wishlist display
         $pics = $user->pics()->get();
         }
         else {
             $name = '';
             $list = '';
         }
-        
-        
-        //$data= $pic;
-        //dd($pic->link);
-        //dd($request->key);
-        //$data=$request->
-        //public function pics() {
-        //return $this->belongsToMany('Picnook\Pic', 'pic_user')->withTimestamps()->withPivot('mat_color', 'mat_thickness', 'frame_color', 'frame_thickness');
-
-
-
-        return View::make('picnook.create')->with('pic', $pic)->with('name', $name)->with('pics', $pics)->with('key', $key);
+        $data = array('pic'=>$pic, 'name'=>$name, 'pics'=>$pics, 'key'=>$key);
+        return View::make('picnook.create')->with($data);
     }
 
     /**
@@ -107,78 +94,39 @@ class PicController extends Controller
      */
     public function store(Request $request)
     {
-         //$toAdd = $request->input('key');
+        $this->validate($request, ['key'=> 'required|numeric', 'frameselect' => 'required', 'framethick' => 'required|numeric', 'matselect' => 'required', 'matthick' =>'required|numeric', 'cost'=>'required|numeric']);
 
-        //dd($toAdd);
-        //$itemtoAdd='';
-         //$itemtoAdd = Pic::where('id', 'LIKE', $toAdd)->first();
-//itemtoAdd2 = $request->input('framethick');
-         //dd($itemtoAdd2);
-          $this->validate($request, [/*'title'=> 'required|min:3', 'published' => 'required|min:4|numeric', 'cover' => 'required|url', 'purchase_link' => 'required|url', */]);
-
-         $toAdd = $request->input('key');
-        //dd($toAdd);
+        //the value of the image id that will be stored
+        $toAdd = $request->input('key');
         $user=Auth::user();
         $userid=$user->id;
-        //dd($user);
         $list = $user->pics()->get();
-        //dd($list);
-        
-        //dd($list);
         $itemtoAdd='';
-        //dd($list);
         if (isset($list)){
         foreach ($list as $item) {
-           
-            //$toAdd = $toAdd+1;
             if ($item->id == $toAdd) {
-               // if(!(\Auth::check())) {
-                Session::flash('flash_message', 'You have already added this one');
-               return \Redirect::back();//->with('status',
-                //redirect('/')->with('flash_message');
+                Session::flash('flash_message', 'The Pic is already in your list');
+               return \Redirect::back();
             }}
-            //else {
-                 $itemtoAdd = Pic::where('id', 'LIKE', $toAdd)->first();
-                 //dd($itemtoAdd);
+            $itemtoAdd = Pic::where('id', 'LIKE', $toAdd)->first();
+            $frame_color = $request->input('frameselect');
+            $frame_thickness = $request->input('framethick');
+            if ($request->input('matselect')==null){
+                $mat_color = '';
+            }
+            else $mat_color = $request->input('matselect');
+            $cost = $request->input('cost');
+            $mat_thickness = $request->input('matthick');
+            $user->pics()->save($itemtoAdd);
+            $match = ['pic_id' => $toAdd, 'user_id' => $userid];
 
-                 $frame_color = $request->input('frameselect');
-                 $frame_thickness = $request->input('framethick');
-                 if ($request->input('matselect')==null){
-                    $mat_color = '';
-                 }
-                 else $mat_color = $request->input('matselect');
-                 $cost = $request->input('cost');
-                 $mat_thickness = $request->input('matthick');
-                 /* $a = $request->input('frameselect');
-                 $b = $request->input('framethick');
-                 $c= $request->input('matselect');
-                 $d= $request->input('matthick');*/
-                //if (!$list->contains($itemtoAdd->id)) 
-                //{
-                    $user->pics()->save($itemtoAdd);
-                    //$wheretoAdd =DB::table('pic_user')->where('pic_id', 'LIKE', $toAdd)->first();
-                    //DB::table('pic_user')->insert([
-                   //$wheretoAdd->update(['frame_color'=>$itemtoAdd->frame_color]);
-                    //dd($toAdd);
-                    //dd($frame_color);
-                    $matchThese = ['pic_id' => $toAdd, 'user_id' => $userid];
-                   DB::table('pic_user')->where($matchThese)->update(['frame_color' => $frame_color, 'mat_color'=>$mat_color, 'frame_thickness'=>$frame_thickness, 'mat_thickness'=>$mat_thickness, 'cost'=>$cost]);
-                   //DB::table('pic_user')->save();
-                   //DB::table('users')
-            //->where('id', 1)
-            //->update(['votes' => 1]);
-                return redirect('/pics/create/'.$toAdd);
-                
-                //'link'=>'/images/pexels-photo-65035.jpeg'
-                    //dd($itemtoAdd->mat_thickness);
-                    
-                
-            
-      }}
+            //gather the picture image traits to save.  note that cost is here for the purpose of future enhancements, but is a hardcoded default amount at this time
+            $data = array('frame_color' => $frame_color, 'mat_color'=>$mat_color, 'frame_thickness'=>$frame_thickness, 'mat_thickness'=>$mat_thickness, 'cost'=>$cost);
+            DB::table('pic_user')->where($match)->update($data);
+            Session::flash('flash_message', 'your selection has been added.');
+            return redirect('/pics/create/'.$toAdd);
+    }}
     
-    
-        
-
     /**
      * Display the specified resource.
      *
@@ -187,7 +135,8 @@ class PicController extends Controller
      */
     public function show($id)
     {
-        //
+        //I don't have a typical show functionality.  
+        //I'm taking users directly to a configuration screen for a particular pic when the click on a pic on the index page.  There they create, which then goes to store.
     }
 
     /**
@@ -200,18 +149,16 @@ class PicController extends Controller
 
     {   
         $user = Auth::user();
-        //dd($user->pics()->get());
-        //dd($user);
-        
-         $pics=$user->pics()->get();
-         $matchThese = ['pic_id' => $id, 'user_id' => $user->id];
 
-         $pic_info = Pic::where('id', '=', $id)->first();
-         $pic_config = DB::table('pic_user')->where($matchThese)->first(); 
-         //dd($pic_config->mat_color);
-            //dd($pic);
-          $data = array('pic_config'=>$pic_config,'pics'=>$pics, 'pic_info'=>$pic_info,'id'=>$id );
-         return view('picnook.edit')->with($data);
+        $pics=$user->pics()->get();
+        $match = ['pic_id' => $id, 'user_id' => $user->id];
+        $pic_info = Pic::where('id', '=', $id)->first();
+        //$pic_config is used to reference user's frame/mat config of frame and mat which are stored in pivot table fields for ease of use, as these are particular to this user's ownership of this instance of the pic.  p
+        //pic_info references the Pics table, in which are stored the link, title, category
+        //find the row in the table with this user and this pic id,to prepare the initial state and identifying variables necessary for editing and then updating
+        $pic_config = DB::table('pic_user')->where($match)->first(); 
+        $data = array('pic_config'=>$pic_config,'pics'=>$pics, 'pic_info'=>$pic_info,'id'=>$id );
+        return view('picnook.edit')->with($data);
     }
 
     /**
@@ -223,42 +170,26 @@ class PicController extends Controller
      */
     public function update(Request $request, $id)
     {   
-     //dd($request->input('cost'));
-       /* "eframeselect" => "#645452"
-  "matselect" => "white"
-  "eframethick" => "1"
-  "ematthick" => "0.5"
-  "cost" => "155.00"*/
-       
+           $this->validate($request, [
+        'matselect' => 'required', 'eframeselect' =>'required', 'eframethick'=>'required', 'ematthick'=>'required','cost'=>'required',
+    ]);
         $id= $id;
-        //dd($id);
         $user = Auth::user();
-       
         $match = array('pic_id'=>$id, 'user_id'=>$user->id);
-        $table = DB::table('pic_user');
+        //$table = DB::table('pic_user');
+        //get the row from the pivot table where the configs are stored
         $pic= DB::table('pic_user')->WHERE($match);
-       // dd($pic);
-
-        //dd($pic->mat_color);
-        //dd($pic);
-
-       
-
         $mat_color = $request->matselect;
         $frame_color = $request->eframeselect;
         $frame_thickness = $request->eframethick;
+        $mat_thickness = $request->ematthick;
         $cost = $request->cost;
-        $data = array('mat_color'=>$mat_color, 'frame_color'=>$frame_color, 'frame_thickness'=>$frame_thickness, 'cost'=>$cost);
-      
+        $data = array('mat_color'=>$mat_color, 'frame_color'=>$frame_color, 'frame_thickness'=>$frame_thickness, 'mat_thickness' => $mat_thickness, 'cost'=>$cost);
         $pic->update($data);
         Session::flash('flash_message', 'your changes were saved');
-      
         return Redirect::Back();
-      
     }
 
-
-    
 
     /**
      * Remove the specified resource from storage.
@@ -269,41 +200,18 @@ class PicController extends Controller
    public function destroy($id)
     {  
         $user= Auth::user();
-       // $pic=$user->pics()->find($id);
-       // $pic=Pic::find($id);
-      /*  if(is_null($id)) {
-            Session:flash('message', 'pic not found');
-            return redirect('/');
-        }*/
-
-        /*if($->tags()){
-            $book->tags()->detach();
-        }*/
-        $matchThese = ['pic_id' => $id, 'user_id' => $user->id];
-       
-                   DB::table('pic_user')->where($matchThese)->delete(); 
-        //$pic->delete();
-        #DB::table('users')->delete();
-
-        #DB::table('users')->where('votes', '>', 100)->delete();
+        $match = ['pic_id' => $id, 'user_id' => $user->id];
+        DB::table('pic_user')->where($match)->delete(); 
         Session::flash('flash_message', 'your item was deleted');
         return \Redirect::back();
-
     }
 
+    /* a simple search demo b the material in lecture, works on title and category of pics */
     public function postSearch(Request $request) {
-
-    # Do the search with the provided search term
-   // $pics = Pic::where('title','LIKE','%'.$request->searchTerm.'%')->where('category', '=', $request->searchTerm)->get();
-
-        $test  = substr($request->searchTerm, 0, 3);
-
-    $pics = Pic::where('category','LIKE','%'.$test.'%', 'OR')->
-    where('title','LIKE','%'.$test.'%','OR')->get();
-   
-     
-    # Return the view with the books
-    return view('picnook.search-ajax')->with('pics',$pics);
-}
-
+        #take only the first few characters for the search match, instead of the complete user term
+        $fuzzy_string  = substr($request->searchTerm, 0, 3);
+        $pics = Pic::where('category','LIKE','%'.$fuzzy_string.'%', 'OR')->
+        where('title','LIKE','%'.$fuzzy_string.'%','OR')->get();
+        return view('picnook.search-ajax')->with('pics',$pics);
+    }
 }

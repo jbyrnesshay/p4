@@ -19,7 +19,7 @@
                      <div id="flash_message">
                     {{Session::get('flash_message')}}
                  </div>
-            @else  <h2 id="ctrhead">your pics</h2> 
+            @else  <h2 id="ctrhead">Pics for your home</h2> 
             @endif
            </div>
             <nav>

@@ -18,8 +18,7 @@
           <select id="category" name="category">
               <option selected>select one</option>
               <option value="recommended" id="recommended">recommended</option>
-              <option value="landscapes" id="landscapes">landscapes
-              </option>
+              <option value="landscapes" id="landscapes">landscapes</option>
               <option value="astronomy"   id="astronomy">astronomy</option>
               <option value="city"   id="city">city</option>
           </select>
@@ -40,7 +39,7 @@
         {{$category}} 
       </h2>  
       @foreach ($catalog_pics as $key=>$pic)
-        <div class="img test">
+        <div class="img">
           <?php ++$key; ?>  
           <a href="/pics/create/{{$key}}"> <img class="index" alt="{{$pic->title}}" src="{{$pic->link}}"> </a>  
         </div>
