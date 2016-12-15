@@ -29,18 +29,21 @@
    
     
    <div id="selectionoptions">
-    <form method="POST" action="/store" >
+    <form method="POST" action="/pics/{{$id}}" >
         {{ csrf_field() }}
+        {{ method_field('PUT')}}
     <fieldset>
     
     <input type="hidden" value={{$pic_config->frame_color}} id="eframecolor">
     <input type="hidden" value={{$pic_config->mat_color}} id="ematcolor">
 
+    <input type="hidden" value={{$pic_config->id}} name='id'>
+
     <label for = "eframeselect">select frame:</label>
    <select id ="eframeselect" name='eframeselect'>
-    	<option id="black">black</option>
+    	<option value="black" >black</option>
     	 
-    	<option id="silver">silver</option>
+    	<option value="silver">silver</option>
     	<option value="#321414" >seal brown</option>
     	<option value="#4f3A3c">dark puce</option>
     	<option value="#645452">wenge</option>

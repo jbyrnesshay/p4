@@ -28,7 +28,7 @@ class User extends Authenticatable
     ];
 
     public function pics() {
-        return $this->belongsToMany('Picnook\Pic', 'pic_user')->withTimestamps()->withPivot('mat_color', 'mat_thickness', 'frame_color', 'frame_thickness');
+        return $this->belongsToMany('Picnook\Pic', 'pic_user')->withTimestamps()->withPivot('mat_color', 'mat_thickness', 'frame_color', 'frame_thickness', 'cost');
 
     }
   

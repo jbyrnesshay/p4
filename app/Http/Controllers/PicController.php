@@ -162,7 +162,7 @@ class PicController extends Controller
                     //dd($toAdd);
                     //dd($frame_color);
                     $matchThese = ['pic_id' => $toAdd, 'user_id' => $userid];
-                   DB::table('pic_user')->where($matchThese)->update(['frame_color' => $frame_color, 'mat_color'=>$mat_color, 'frame_thickness'=>$frame_thickness, 'mat_thickness'=>$mat_thickness, '$cost'=>$cost]);
+                   DB::table('pic_user')->where($matchThese)->update(['frame_color' => $frame_color, 'mat_color'=>$mat_color, 'frame_thickness'=>$frame_thickness, 'mat_thickness'=>$mat_thickness, 'cost'=>$cost]);
                    //DB::table('pic_user')->save();
                    //DB::table('users')
             //->where('id', 1)
@@ -208,9 +208,9 @@ class PicController extends Controller
 
          $pic_info = Pic::where('id', '=', $id)->first();
          $pic_config = DB::table('pic_user')->where($matchThese)->first(); 
-         //dd($pic_config);
+         //dd($pic_config->mat_color);
             //dd($pic);
-          $data = array('pic_config'=>$pic_config,'pics'=>$pics, 'pic_info'=>$pic_info );
+          $data = array('pic_config'=>$pic_config,'pics'=>$pics, 'pic_info'=>$pic_info,'id'=>$id );
          return view('picnook.edit')->with($data);
     }
 
@@ -222,9 +222,43 @@ class PicController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+    {   
+     //dd($request->input('cost'));
+       /* "eframeselect" => "#645452"
+  "matselect" => "white"
+  "eframethick" => "1"
+  "ematthick" => "0.5"
+  "cost" => "155.00"*/
+       
+        $id= $id;
+        //dd($id);
+        $user = Auth::user();
+       
+        $match = array('pic_id'=>$id, 'user_id'=>$user->id);
+        $table = DB::table('pic_user');
+        $pic= DB::table('pic_user')->WHERE($match);
+       // dd($pic);
+
+        //dd($pic->mat_color);
+        //dd($pic);
+
+       
+
+        $mat_color = $request->matselect;
+        $frame_color = $request->eframeselect;
+        $frame_thickness = $request->eframethick;
+        $cost = $request->cost;
+        $data = array('mat_color'=>$mat_color, 'frame_color'=>$frame_color, 'frame_thickness'=>$frame_thickness, 'cost'=>$cost);
+      
+        $pic->update($data);
+        Session::flash('flash_message', 'your changes were saved');
+      
+        return Redirect::Back();
+      
     }
+
+
+    
 
     /**
      * Remove the specified resource from storage.

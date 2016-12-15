@@ -34,6 +34,7 @@ Route::get('/pics/create/{item}', 'PicController@create')->name('pics.create');
 Route::post('/store', 'PicController@store')->name('store');
 Route::get('/pics/{item}/edit', 'PicController@edit')->name('pics.edit');
 Route::delete('/pics/{item}', 'PicController@destroy')->name('pics.delete');
+Route::put('/pics/{id}', 'PicController@update')->name('pics.update');
 
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::get("/register", 'Auth\RegisterController@register')->name('register');

@@ -23,7 +23,7 @@ class CreatePicUserTable extends Migration
             $table->float('mat_thickness')->nullable();
             $table->string('frame_color')->nullable();
             $table->float('frame_thickness')->nullable();
-            $table->float('$cost')->unsigned()->nullable();
+            $table->float('cost')->unsigned()->nullable();
         
         $table->foreign('pic_id')->references('id')->on('pics');
         $table->foreign('user_id')->references('id')->on('users');
