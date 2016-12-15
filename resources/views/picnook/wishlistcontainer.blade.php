@@ -1,7 +1,8 @@
+<section id="wish">
 <div id="wishlistcontainer">
  @if (Auth::check())
     <button id="options">options</button>
-    <h2> your picnook list: </h2>
+    <h2 id="listheading"> your picnook list: </h2>
    
 
      @foreach ($pics as $item)
@@ -32,3 +33,5 @@
      @endif
     
     </div>
+
+</section>

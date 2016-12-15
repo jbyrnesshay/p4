@@ -38,9 +38,7 @@
                 <li><a href="/login">sign in</a></li>
                 @else 
                     <li id="greeting">
-                    @if (isset($name))
-                        {{"hi ".$name."!"}}
-                    @endif
+                    {{'hi '.$user->first_name."!"}}
                     </li>
                 <li><a href="/logout">sign out</a></li>
                 @endif
