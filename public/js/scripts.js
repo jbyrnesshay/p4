@@ -32,7 +32,6 @@ $(document).ready(function() {
 		}
 	}
 	
- 
 	//some simple home page options
  	function homepageFuncs() {
 		//if wishlist options button is clicked it 
