@@ -10,7 +10,9 @@ https://docs.google.com/document/d/1kOdVyH9gjhuJE3ep7HsyTEUcpVRdQ85i1sHSZW-f6a0/
 an app to select a photo, and configure a frame and matting for it.
 then store it in user wishlist, which is editable.
 
-## Demo
+## Screencast Demo
+http://www.screencast.com/t/gI5kI6Us6
+
 
 ## list/details of CRUD
 CRUD in the app is centered around the user's ability to configure frame/mat settings which are 
