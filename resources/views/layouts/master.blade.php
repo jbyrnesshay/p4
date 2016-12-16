@@ -15,12 +15,19 @@
                 <h1><i class="fa fa-home"></i>PICNOOK</h1>
             </div>
             <div id="headimage">
-             @if(Session::get('flash_message') != null)
-                     <div id="flash_message">
-                    {{Session::get('flash_message')}}
-                 </div>
-            @else  <h2 id="ctrhead">Pics for your home</h2> 
-            @endif
+                @if(Session::get('flash_message') != null)
+                         <div id="flash_message">
+                        {{Session::get('flash_message')}}
+                     </div>
+
+                @elseif (count($errors) > 0)
+                    <div class="error">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                @else 
+                    <h2 id="ctrhead">Pics for your home</h2> 
+                @endif
            </div>
             <nav>
                 <ul>

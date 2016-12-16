@@ -23,7 +23,7 @@ $(document).ready(function() {
  	//editpageListener();
  	editPageitemcontrol();
 
- 	//go to home page when click Picnook h1
+	//go to home page when click Picnook h1
  	goHome();
 
 	//jquery effect on flash messages

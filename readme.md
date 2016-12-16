@@ -20,8 +20,7 @@ specific image.
 
 * create- lines 62-87 of create(), PicController.php, lines 95-130 of store(), PicController.php, user 
 eperience-  click on image on main page to 
-begin, 
-configure settings, store by clicking submit, see the item added to wishlist on the right side  of the 
+begin, configure settings, store by clicking submit, see the item added to wishlist on the right side  of the 
 screen
 
 * read -  index function of PicController.php, reads all pics from the database by default, displays 
@@ -42,8 +41,10 @@ and color in the wishlist window on the right.
 *delete - destroy method of PicController.php, lines 200-207;  when user clicks delete button on 
 wishlist item, routing occurs through delete/pics{$item}, selected and deleted in lines 203-204 
 
+
+
 ## Details for teaching team
-Login required.  seeded for jill@harvard.edu and jamal@harvard.edu, 'helloworld'
+Login required.  seeded for jill and jamal as per the specs
 
 ## Outside code
 none
