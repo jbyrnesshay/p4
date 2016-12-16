@@ -23,6 +23,9 @@ $(document).ready(function() {
  	//editpageListener();
  	editPageitemcontrol();
 
+ 	//go to home page when click Picnook h1
+ 	goHome();
+
 	//jquery effect on flash messages
 	function flashMessages() {
 		if ($('#flash_message').html()) {
@@ -30,6 +33,11 @@ $(document).ready(function() {
 			 	//$('#ctrhead').html(headsource);
 			});
 		}
+	}
+	function goHome() {
+		$('h1, #transp').click(function() {
+			window.location = 'http://p4.midnightoil.me/';
+		});
 	}
 	
 	//some simple home page options
