@@ -54,8 +54,7 @@
             Picnook is the foundation for an ecommerce simulation.  For the purposes of Assignment #4, it is lacking ecommerce features, however it provides a rough simulation of a customer browsing experience on an online pic-to-home-art site.  There is no buy function (but there is a buy button).
           </p>
           <h3>Section 2</h3>
-          <p>
-             Primary features are:  
+          <p>Primary features are:</p>
             <ul>
               <li> home button in upper right of nav bar to return to front page at any time</li>
               <li> click photo select and land on create page </li>
@@ -67,8 +66,8 @@
               <li>select a demo category of images, to view images of only that category</li>
               <li>a demo of the search functionality introduced by Susan Buck in the written lectures, completely borrowed, all credit to her for this particular code</li>
               <li>search allows to search for title or category, very simple, not fleshed out in functionality</li>
-              <li>user greeting by first name when user logged  in</li>
-          </p>
+              <li>user greeting by first name when user logged in</li>
+            </ul>
           </div>
         @include('picnook.wishlistcontainer')
       </div> 
