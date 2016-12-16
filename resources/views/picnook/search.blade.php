@@ -9,6 +9,7 @@
 @stop
 
 @section('content')
+{{--attribute search to Susan Buck, Harvard University --}}
 	<p id="searchtest">test this </p>
  	<form method='POST' action='/pic/search'>
 		{{ csrf_field()}}

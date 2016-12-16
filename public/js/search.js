@@ -1,5 +1,6 @@
 
 /*search.js scripting from susan buck, foobooks code */
+/*all credit for search.js attributed  to susan buck, harvard university */
 
 // We don't want the form to actually submit if the user hits the Enter key
 $('form').submit(function(event) {

@@ -9,6 +9,7 @@
     <link href="/css/picnook.css" type="text/css" rel='stylesheet'>
 @stop
 @section('content')
+{{-- this is Susan Buck's code, attributed to Susan Buck, Harvard University--}}
   <div id="mainpagecontainer">
     @if(sizeof($pics) == 0)
         No results found.

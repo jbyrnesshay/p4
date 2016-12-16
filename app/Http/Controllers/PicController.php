@@ -207,6 +207,8 @@ class PicController extends Controller
     }
 
     /* a simple search demo b the material in lecture, works on title and category of pics */
+    /*the search function, search.js, and the search form are  Susan Buck's code (Susan Buck, Harvard University, not mine.  /*
+    /*All other code by Myself */
     public function postSearch(Request $request) {
         #take only the first few characters for the search match, instead of the complete user term
         $fuzzy_string  = substr($request->searchTerm, 0, 3);
