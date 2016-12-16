@@ -20,8 +20,7 @@
                             <img class="wishitem" alt = "{{$item->title}}" src = "{{$item->link}}" >
                         </div>     
                     </div>
-                    <button class="details">details</button>
-                </div>
+                 </div>
             @endforeach
         @endif
     </div>

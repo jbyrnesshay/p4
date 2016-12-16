@@ -26,12 +26,13 @@ $(document).ready(function() {
 	//jquery effect on flash messages
 	function flashMessages() {
 		if ($('#flash_message').html()) {
-			 $('#flash_message').fadeOut(3000, function(){
+			 $('#flash_message').fade(4000, function(){
 			 	//$('#ctrhead').html(headsource);
 			});
 		}
 	}
 	
+ 
 	//some simple home page options
  	function homepageFuncs() {
 		//if wishlist options button is clicked it 

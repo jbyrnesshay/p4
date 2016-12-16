@@ -565,6 +565,12 @@ div#frame {
 #savechanges {
 	font-weight: bolder;
 }
+#pg1rightcontent {
+	padding: 1em;
+}
+.title {
+	font-size: .7em;
+}
 @media all and (max-width: 900px) {
 	#purchase fieldset label {
 	margin-left: .25em;
