@@ -47,7 +47,6 @@ class PicController extends Controller
             $data = array('name'=>$user->first_name, 'catalog_pics'=>$catalog_pics, 'pics'=>$pics, 'category'=>$category);
         }
         else {
-            //$data = ['pics'=>$pics];
             //post-class enhancements of this app will present pics and limited browsing to non-logged-in guests //
             $data = array('category'=>$category, 'catalog_pics'=>$catalog_pics);
         }
@@ -176,7 +175,6 @@ class PicController extends Controller
         $id= $id;
         $user = Auth::user();
         $match = array('pic_id'=>$id, 'user_id'=>$user->id);
-        //$table = DB::table('pic_user');
         //get the row from the pivot table where the configs are stored
         $pic= DB::table('pic_user')->WHERE($match);
         $mat_color = $request->matselect;
