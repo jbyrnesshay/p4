@@ -51,3 +51,10 @@
 .registerpanel {
 	background: antiquewhite;
 }
+
+ul#login-nav li a {
+	height: 2.75em;
+	text-align:center;
+	margin: 0 auto;
+	padding: .7em 0 0 0;
+}

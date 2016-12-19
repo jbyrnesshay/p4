@@ -194,10 +194,5 @@ class PicsTableSeeder extends Seeder
             'category'=>'landscapes',
             'link'=>'/images/landscapes/pexels-photo-30865.jpg'
         ]);
-
-
-
-         
-
     }
 }

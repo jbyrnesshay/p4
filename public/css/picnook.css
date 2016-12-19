@@ -543,6 +543,9 @@ div#frame {
 .searchresult:nth-of-type(2) {
 	margin-bottom:1em;
 }
+#welcomepagecontainer {
+	background: grey;
+}
 #welcomepagecontainer section {
 	margin: 0 auto;
 	font-size: 3em;
@@ -550,6 +553,8 @@ div#frame {
 	text-align:center;
 	border: 1px solid red;
 	margin-top: 4em;
+	background: antiquewhite;
+	text-transform: uppercase;
 }
 #searchable h3 {
 	font-size: .85em;

@@ -21,28 +21,13 @@ class PicUserTableSeeder extends Seeder
         ];
     
     foreach ($lists as $user => $items) {
-
-    	$user = User::where('first_name', 'like', $user)->first();
-
-    	foreach ($items as $item) {
-
-    		$addtoList = Pic::where('id', 'like', $item)->first();
-        
-       
-    	$user->pics()->save($addtoList);	
-       $matchThese = ['pic_id' => $addtoList->id, 'user_id' => $user->id];
-       
-                   DB::table('pic_user')->where($matchThese)->update(['frame_color' => 'silver', 'mat_color'=>'white', 'frame_thickness'=>'.5', 'mat_thickness'=>'.5', 'cost'=>'155.00']);
-
-      /* $addtoList->pivot->mat_color = 'white';
-        $addtoList->pivot->frame_color = 'silver';
-        $addtoList->pivot->frame_thickness = '.5em';
-        $addtoList->pivot->mat_thickness = '.5em';*/
-        //$user->pics()->with('frame_thickness', .4)->save($addtoList);  
- 
-
-
-    	}
+        $user = User::where('first_name', 'like', $user)->first();
+        foreach ($items as $item) {
+        $addtoList = Pic::where('id', 'like', $item)->first();
+        $user->pics()->save($addtoList);	
+        $matchThese = ['pic_id' => $addtoList->id, 'user_id' => $user->id];
+        DB::table('pic_user')->where($matchThese)->update(['frame_color' => 'silver', 'mat_color'=>'white', 'frame_thickness'=>'.5', 'mat_thickness'=>'.5', 'cost'=>'155.00']);
+        }
     }
   }
 }

@@ -28,17 +28,7 @@ class CreatePicsTable extends Migration
             $table->string('category')->nullable();
             
             $table->string('link');
-
-
-            /*
-            $table->string("mat_color")->nullable();
-            $table->string('mat_thickness')->nullable();
-            $table->string('frame_color')->nullable();
-            $table->string('frame_thickness')->nullable();*/
-
-            #fyi we are skipping the tags field for now, more on that later
-
-       });
+        });
     }
 
     /**
